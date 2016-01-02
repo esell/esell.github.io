@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on es Heavy Industries</title>
+    <link>http://esheavyindustries.com/b/categories/aws/</link>
+    <description>Recent content in Aws on es Heavy Industries</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jan 2016 19:16:35 -0700</lastBuildDate>
+    <atom:link href="http://esheavyindustries.com/b/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deploying the Latest Hot App on AWS for Free*</title>
+      <link>http://esheavyindustries.com/b/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</link>
+      <pubDate>Fri, 01 Jan 2016 19:16:35 -0700</pubDate>
+      
+      <guid>http://esheavyindustries.com/b/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</guid>
+      <description>
+
+&lt;h3 id=&#34;wait-what:028da4a231a5317af863941c3c91d223&#34;&gt;Wait, what?&lt;/h3&gt;
+
+&lt;p&gt;AWS (Amazon Web Services) provides a free tier for new customers that allows you to play around with most of their services for a year without paying a cent. If you did not know that, you should head over to their page &lt;a href=&#34;https://aws.amazon.com/free/&#34;&gt;here&lt;/a&gt; and take a look at the details.&lt;/p&gt;
+
+&lt;p&gt;This free tier is great for people who want to play around with the various AWS offerings without having to commit to anything. It is also a great way to deploy a new web app which is what I recently did and will cover in this post.&lt;/p&gt;
+
+&lt;p&gt;Understand that what I&amp;rsquo;m talking about here is a bare-bones infrastructure that is good for low-volume, single region setups. This setup is NOT what you would typically use in your real production infrastructure but because of the way AWS is setup, you could easily scale out to a more fault tolerant architecture later without much work.&lt;/p&gt;
+
+&lt;h3 id=&#34;free:028da4a231a5317af863941c3c91d223&#34;&gt;&amp;ldquo;Free&amp;rdquo;&lt;/h3&gt;
+
+&lt;p&gt;Everything I talk about in this article was done using the free AWS tier except for the domain name. So when I say free I am not including the cost of purchasing a domain name but that is also technically not something you need in order to make this work.&lt;/p&gt;
+
+&lt;p&gt;Also I think it&amp;rsquo;s worth mentioning again that this architecture works for your initial site or your proof-of-concept. Don&amp;rsquo;t expect to run an app that is taking millions of hits a day on the free tier.&lt;/p&gt;
+
+&lt;h3 id=&#34;background:028da4a231a5317af863941c3c91d223&#34;&gt;Background&lt;/h3&gt;
+
+&lt;p&gt;I had a pet project of mine where the goal was to create an online wish list site that was basic, fast and just did what it was told. I wanted to create something that was super simple to use so that anyone in your family could use it. As this was a pet project I also didn&amp;rsquo;t want to put in a lot of time supporting it or babysitting it. I wanted it to &amp;ldquo;just work&amp;rdquo; without me having to setup a metric ass ton of systems to support it.&lt;/p&gt;
+
+&lt;p&gt;The end result came out as &lt;a href=&#34;https://thewishler.com&#34;&gt;The Wishler&lt;/a&gt;. Feel free to check it out, it&amp;rsquo;s a live app and works as advertised so go nuts.&lt;/p&gt;
+
+&lt;p&gt;Many of the things I ended up doing are just basic AWS best practices.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-i-did-it:028da4a231a5317af863941c3c91d223&#34;&gt;How I did it&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is not meant to be a step-by-step tutorial but more of just a high-level overview on how one person stitched together various AWS offerings. The AWS documentation is pretty good so if you are new to AWS I&amp;rsquo;d suggest checking those out.&lt;/p&gt;
+
+&lt;p&gt;I knew at the core what I wanted for The Wishler (an app server and a database) but the overall process was very iterative. I think this is one area where AWS really shines compared to other cloud providers. They have such a large catalog of offerings that you can basically hit a spot during your development where you think &amp;ldquo;I could really use something that did _____&amp;rdquo; and then jump onto their site and find a solution that matches up well.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s start at the beginning then: the app server. Since I was determined to stick to the free tier I decided to go with a standalone EC2 instance behind an Elastic Load Balancer. My actual app is a great candidate for Docker but with the way the EC2 Container service works you need to run your containers on EC2 instances. The only instance type that is free however is the t2.micro which I felt was not a great candidate for multiple containers.&lt;/p&gt;
+
+&lt;p&gt;Now that I knew what I was going to run my app on, I needed to come up with a way that would allow it to scale when the time comes. Since I didn&amp;rsquo;t want to support additional load balancers and I really didn&amp;rsquo;t want to come up with the glue to bring the process together I went with an off-the-shelf AWS Auto Scaling group and Elastic Load Balancer. The beauty in these (for me) is that if I outgrow the free tier for some reason I&amp;rsquo;ll easily be able to scale pretty quickly. An example would be that my tiny t2.micro app server can no longer handle all the requests coming in. With an API call or a click of a button I can spin up a couple more t2.micro instances behind the already existing Elastic Load Balancer. No configuration changes, no IPs to keep track of just a simple way to handle growth.&lt;/p&gt;
+
+&lt;p&gt;In order to use Auto scaling groups you&amp;rsquo;ll either need to create a base image that has something on it to install your app during start-up or use the user-data option. My app is written in Go and is pretty simple so I decided to lean some more on the free tier from AWS and use their CodeCommit product which is basically just a remote git repo. On start-up the instance will install the required Go tooling, checkout the master branch from CodeCommit, build it and start it up. There were quite a few options here that would have worked as well (creating a base AMI, keeping a deb file in S3, etc) but this gave me an excuse to play with another AWS product.&lt;/p&gt;
+
+&lt;p&gt;At this point I now had an ELB pointed at my ASG which meant users could reach the site&amp;hellip; if they knew how to get to it. Using IPs to reach sites is not very popular these days so I decided to register a new domain &lt;a href=&#34;https://thewishler.com&#34;&gt;thewishler.com&lt;/a&gt; and instead of using my registrars DNS tools use the AWS Route53 product. Route53 makes it super simple to plugin to existing AWS infrastructure and also supports some more advanced DNS level load balancing such as geo-location and latency. I should also point out that I did lie a bit and Route53 will cost you about $0.90 a month assuming you have one zone (domain) and keep under 1 million DNS queries. Once Route53 was setup I simply pointed my domain at my already existing ELB and ta-da!&lt;/p&gt;
+
+&lt;p&gt;Alright, so now I was at a point where I could serve up static pages so it was time to look at what I was going to use for the backend/database. I decided to go with Redis doing a rolling hourly snapshot to S3 which might seem kind of odd so let me explain. I am forward thinking so I wanted something that was going to easily scale not only across availability zones, but also across regions. When I say &amp;ldquo;easily&amp;rdquo; I mean something that from a maintenance and configuration standpoint is easy. I think for my specific application an RDBMS like MySQL or Postgres would have been a good fit but my experience with getting them to easily scale across regions has been more work than I wanted to put in.
+Additionally the data I am dealing with is not what I consider critical data. If there is a complete failure and the database needs to be restored, missing an hour worth of data is not going to be the end of the world (in my opinion). On top of that Redis is fast which was a big factor for me.
+Back on track&amp;hellip; So Redis is my backend which meant that I could use the AWS ElastiCache offering. ElastiCache offers either Memcached or Redis for the engine type so it was a great fit for me. I can still develop against a local Redis instance and then deploy to AWS without having to change anything. Additionally ElastiCache is kind of like an ASG for Redis. If I need to I can increase the number of instances in the cluster, scale them out across availability zones, create replication groups, etc. All of this is done via a few button clicks or the API and I don&amp;rsquo;t have to manage individual instances or installs which is really &lt;strong&gt;really&lt;/strong&gt; nice.
+With the goal of keeping things free I just went with a single cache.t2.micro instance and called it a day.&lt;/p&gt;
+
+&lt;p&gt;I was feeling pretty good now because I had the core of my app up and running in a somewhat robust setup in the sense that if an instance died off or failed it would be replaced with minimum downtime and it was all free*. I also didn&amp;rsquo;t have to manage a damn thing and actually didn&amp;rsquo;t even know the IP of any instance in my existing setup, all I cared about was pushing code to CodeCommit aka git and refreshing the ASG to pick-up the changes.&lt;/p&gt;
+
+&lt;p&gt;The code was coming along well until I hit a point where I realized I would have to occasionally send e-mails to people. As part of &lt;a href=&#34;https://thewishler.com&#34;&gt;The Wishler&lt;/a&gt; password reset process the app sends out a unique reset ID via e-mail. Given that these e-mails are related to password resets I wanted them to hit the inbox and not get flagged as spam. I also did not want to manage an SMTP server. Guess what? AWS has an app for that called SES that allows you to send e-mails either via an API or plain ol SMTP using the AWS mail servers. This means another thing I don&amp;rsquo;t have to manage AND the servers are on IPs that are not going to get flagged as spam. The setup was super simple and since I was already using Route53 all of the DKIM stuff was setup for me.&lt;/p&gt;
+
+&lt;h3 id=&#34;and-then:028da4a231a5317af863941c3c91d223&#34;&gt;And then&amp;hellip;&lt;/h3&gt;
+
+&lt;p&gt;Now I&amp;rsquo;m at a point where all of the app works and does what I want using the following products:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EC2&lt;/li&gt;
+&lt;li&gt;ElastiCache&lt;/li&gt;
+&lt;li&gt;Route53&lt;/li&gt;
+&lt;li&gt;CodeCommit&lt;/li&gt;
+&lt;li&gt;SES&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;and am already re-thinking some things that could change or that could be re-done. One thing I&amp;rsquo;ve been toying around with was using the Lambda service to get rid of servers but since the app is already written in Go I would need to re-write everything. I&amp;rsquo;d also like to wrap in the CodeDeploy and CodePipeline services since I only have a single app and would be able to stay on the free tier.&lt;/p&gt;
+
+&lt;h3 id=&#34;so-when-aws-goes-under:028da4a231a5317af863941c3c91d223&#34;&gt;So when AWS goes under&lt;/h3&gt;
+
+&lt;p&gt;One of the biggest risks with this is that even though I haven&amp;rsquo;t put any AWS specific API calls or anything into my code, if AWS was going to close at the end of the month I would have some problems. The biggest of course would be replicating the services on my own hardware or VMs. It&amp;rsquo;s easy enough to just setup a basic SMTP box or HAProxy load balancer, the complications come into play when you start talking about multiple availability zones and regions. Keeping things simple while allowing yourself to scale with a push of a button is something that AWS does a really good job of and that is not easy to replicate. My personal belief is to develop your application(s) to use non-vendor specific APIs or whatever so that you can easily move it if needed, but until that point comes leverage the offerings your vendor has and spend the time you&amp;rsquo;re saving to improve your application.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
