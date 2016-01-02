@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Waytooearly on es Heavy Industries</title>
+    <link>http://localhost:1313/b/categories/waytooearly/</link>
+    <description>Recent content in Waytooearly on es Heavy Industries</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Mar 2015 22:10:39 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/b/categories/waytooearly/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Unleash the Hounds, err, Bees?</title>
+      <link>http://localhost:1313/b/2015/03/unleash-the-hounds-err-bees/</link>
+      <pubDate>Wed, 18 Mar 2015 22:10:39 -0600</pubDate>
+      
+      <guid>http://localhost:1313/b/2015/03/unleash-the-hounds-err-bees/</guid>
+      <description>
+
+&lt;h3 id=&#34;killabees-on-the-swarm-literally:3c794f4bfe616a5304fbe2573b9e44c8&#34;&gt;Killabees on the swarm, literally&lt;/h3&gt;
+
+&lt;p&gt;At work we are running most of our applications in Docker Swarm. So far it has been mostly good and has given us enough confidence in it to continue moving forward. If you are familiar with Docker you know that you basically can use &amp;ldquo;pure&amp;rdquo; Docker and manage it via it&amp;rsquo;s API or command line tools OR you can use one of the many products that have sprung up around Docker that run on top of it offering a whole host of services. Examples of these would be &lt;a href=&#34;http://mesosphere.com/&#34;&gt;Mesosphere&lt;/a&gt;, &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, the whole &lt;a href=&#34;https://coreos.com/&#34;&gt;CoreOS&lt;/a&gt; stack, etc.
+These are all great products and at one point we were actually running a small test cluster on Mesosphere, but for us and what we wanted, they were just a bit too much. I personally am a bit scared by all of the &amp;ldquo;magic&amp;rdquo; that goes on with most of these products and the complexity that comes with them. On the surface it doesn&amp;rsquo;t seem like much and when things work you forget about it, but when things start heading south and you start having issues it can become a nightmare to track down where the issue is coming from and what is causing it. Assuming you do find the issue, is it something that will have a cascading impact if you try to fix it (fixing A breaks B)?&lt;/p&gt;
+
+&lt;p&gt;Everyone wants reliability but our particular suite of products really do need to be reliable (five 9&amp;rsquo;s is our typical SLA). For us, having a lot of complexity on top of a fairly complex product already (Docker) wasn&amp;rsquo;t really making us feel warm and fuzzy so we set out to create our own. The idea was not to go up against something like Mesosphere or Kubernetes, but instead create some tools that are lightweight, do just what we need and are for the most part, standalone. What we came up with is a group of tools that I&amp;rsquo;m calling the killabees (swarm, bees, get it?)&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://localhost:1313/b/b/pics/killabees.png&#34; alt=&#34;bees!&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;comin atch&amp;rsquo;ya!&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Currently the killabees consists of three tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/radiantiq/deploy-o-matic&#34;&gt;Deploy-o-matic&lt;/a&gt;: used for deploying containers and populating VIPs&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/radiantiq/flipper&#34;&gt;Flipper&lt;/a&gt;: used to flip containers from the &amp;ldquo;cold&amp;rdquo; VIP to the &amp;ldquo;hot&amp;rdquo; VIP&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/radiantiq/conf-builder&#34;&gt;Conf-builder&lt;/a&gt;: used to update HAProxy when VIP members change&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The only requirement for this to work outside of Docker? &lt;a href=&#34;https://consul.io/&#34;&gt;Consul&lt;/a&gt; and &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt; which I&amp;rsquo;m willing to bet most of you have running already.
+We use Consul to track what containers belong to what VIP and then we use HAProxy to act as the front for those VIPs. To explain how it actually works it&amp;rsquo;s probably easier to just pull a blurb from the &lt;a href=&#34;http://radiantiq.github.io/deploy-o-matic/&#34;&gt;deploy-o-matic page&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We use a deployment processes based around the Netflix red/black design. In this case, red is our customer facing containers (live, production traffic) and black is our standby set of containers but they are still in production. Basically red = hot, black = cold.&lt;/p&gt;
+
+&lt;p&gt;Deploy-o-matic by default will deploy all new containers to the black VIP. This will allow you to do any testing or final shakedowns that you want. Once you are comfortable that everything looks good, you can use another tool from our stack called &amp;ldquo;flipper&amp;rdquo; to copy the containers in the black VIP into the red VIP.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We wanted to automate as much of the heavy lifting as possible but still be able to look in on the process as it moved along. Since each one of these steps is actually done with a different tool, it&amp;rsquo;s fairly painless to chain them together in a fully automated fashion if that&amp;rsquo;s what you&amp;rsquo;re after.&lt;br /&gt;
+The best part (in our minds) is that it&amp;rsquo;s dead easy to troubleshoot. We are only using the Docker API and the Consul API with some logic wrapped around it. If something breaks it&amp;rsquo;s either our code or Docker/Consul and the error message is likely to indicate which one it is.&lt;/p&gt;
+
+&lt;p&gt;As noted in most of the github repos for these projects, they are in a very early phase so the code is pretty crazy and there are not as many safety checks as there should be. With that being said though we have successfully deployed to our production clusters many times using the same code that is in github. Things are not where we want them to be yet but the code does run and do what it&amp;rsquo;s supposed to do.&lt;br /&gt;
+The one thing missing for us that is on our list is an auto-scaling type daemon that tracks what containers are running and deploys more as needed based on set thresholds. This will again be it&amp;rsquo;s own separate tool using only the Docker API and Consul. Once we have something that is working we&amp;rsquo;ll probably be throwing it up on github as well so keep an eye out if you&amp;rsquo;re interested.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
