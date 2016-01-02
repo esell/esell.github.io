@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Logs on es Heavy Industries</title>
-    <link>http://esell.github.io/tags/logs/</link>
+    <link>http://esheavyindustries.com/tags/logs/</link>
     <description>Recent content in Logs on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 24 Mar 2015 18:43:05 -0600</lastBuildDate>
-    <atom:link href="http://esell.github.io/tags/logs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://esheavyindustries.com/tags/logs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Elasticsearch in Production, at Scale: One Man&#39;s Story</title>
-      <link>http://esell.github.io/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</link>
+      <link>http://esheavyindustries.com/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</link>
       <pubDate>Tue, 24 Mar 2015 18:43:05 -0600</pubDate>
       
-      <guid>http://esell.github.io/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</guid>
+      <guid>http://esheavyindustries.com/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</guid>
       <description>
 
 &lt;h4 id=&#34;in-the-beginning:f90d37087c90d70a24c8fee54358486d&#34;&gt;In the Beginning&amp;hellip;&lt;/h4&gt;
