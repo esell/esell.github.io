@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Go on es Heavy Industries</title>
-    <link>http://http:/esell.github.io/categories/go/</link>
+    <link>http://esell.github.io/categories/go/</link>
     <description>Recent content in Go on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Jan 2016 19:16:35 -0700</lastBuildDate>
-    <atom:link href="http://http:/esell.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://esell.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Deploying the Latest Hot App on AWS for Free*</title>
-      <link>http://http/esell.github.io/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</link>
+      <link>http://esell.github.io/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</link>
       <pubDate>Fri, 01 Jan 2016 19:16:35 -0700</pubDate>
       
-      <guid>http://http/esell.github.io/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</guid>
+      <guid>http://esell.github.io/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</guid>
       <description>
 
 &lt;h3 id=&#34;wait-what:028da4a231a5317af863941c3c91d223&#34;&gt;Wait, what?&lt;/h3&gt;
@@ -84,10 +84,10 @@ With the goal of keeping things free I just went with a single cache.t2.micro in
     
     <item>
       <title>Unleash the Hounds, err, Bees?</title>
-      <link>http://http/esell.github.io/2015/03/unleash-the-hounds-err-bees/</link>
+      <link>http://esell.github.io/2015/03/unleash-the-hounds-err-bees/</link>
       <pubDate>Wed, 18 Mar 2015 22:10:39 -0600</pubDate>
       
-      <guid>http://http/esell.github.io/2015/03/unleash-the-hounds-err-bees/</guid>
+      <guid>http://esell.github.io/2015/03/unleash-the-hounds-err-bees/</guid>
       <description>
 
 &lt;h3 id=&#34;killabees-on-the-swarm-literally:3c794f4bfe616a5304fbe2573b9e44c8&#34;&gt;Killabees on the swarm, literally&lt;/h3&gt;
@@ -99,7 +99,7 @@ These are all great products and at one point we were actually running a small t
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://http://esell.github.io/b/pics/killabees.png&#34; alt=&#34;bees!&#34;&gt;
+  &lt;img src=&#34;http://esell.github.io/b/pics/killabees.png&#34; alt=&#34;bees!&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;comin atch&amp;rsquo;ya!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -133,10 +133,10 @@ The one thing missing for us that is on our list is an auto-scaling type daemon 
     
     <item>
       <title>Wrangling Zookeeper</title>
-      <link>http://http/esell.github.io/2015/01/wrangling-zookeeper/</link>
+      <link>http://esell.github.io/2015/01/wrangling-zookeeper/</link>
       <pubDate>Sat, 31 Jan 2015 22:02:17 -0700</pubDate>
       
-      <guid>http://http/esell.github.io/2015/01/wrangling-zookeeper/</guid>
+      <guid>http://esell.github.io/2015/01/wrangling-zookeeper/</guid>
       <description>
 
 &lt;h5 id=&#34;spof:12b272660e693d03fef595b262170b60&#34;&gt;SPOF&lt;/h5&gt;
@@ -145,7 +145,7 @@ The one thing missing for us that is on our list is an auto-scaling type daemon 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://http://esell.github.io/b/pics/zookeeper_small.gif&#34; alt=&#34;zookeeper&#34;&gt;
+  &lt;img src=&#34;http://esell.github.io/b/pics/zookeeper_small.gif&#34; alt=&#34;zookeeper&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;smug bastard&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -167,7 +167,7 @@ The one thing missing for us that is on our list is an auto-scaling type daemon 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://http://esell.github.io/b/pics/jackpot.jpg&#34; alt=&#34;jackpot&#34;&gt;
+  &lt;img src=&#34;http://esell.github.io/b/pics/jackpot.jpg&#34; alt=&#34;jackpot&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;blammo!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
