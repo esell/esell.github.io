@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Unleash the Hounds, err, Bees?</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://esell.github.io//css/normalize.css">
+		<link rel="stylesheet" href="http://esell.github.io//css/skeleton.css">
+		<link rel="stylesheet" href="http://esell.github.io//css/custom.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<div class="container" style="background-color:#FFFFFF; border-bottom: 0px solid #eee;">
+			<div class="row">
+				<div class="seven columns">
+					<a href="http://esell.github.io/" style="text-decoration: none; color: #333;"><span style="font-size: 36px; ">es<b>HeavyIndustries</b></span></a>
+					<span style="font-size: 14px;">|<i>life, hobbies, work</i></span>
+				</div>
+				<div class="five columns">
+					<div class="navbar-spacer"></div>
+					<ul class="navbar-list" style="float:right">
+						<li class="navbar-item"><a class="navbar-link" href="http://esell.github.io//series">projects</a></li>
+						<li class="navbar-item"><a class="navbar-link" href="http://github.com/esell" target="#">code</a></li>
+						<li class="navbar-item"><a class="navbar-link" href="mailto:esell@esheavyindustries.com">contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			
+			<div class="row">
+				<div class="twelve columns" >
+					<img class="u-max-full-width" src="http://esell.github.io//img/City-Under-Heat.jpg">
+				</div>
+			</div>
+			
+
+
+
+	<div class="row">
+    	<div class="eight columns">
+    		<a class="post-title-link" href="http://esell.github.io/2015/03/unleash-the-hounds-err-bees/">Unleash the Hounds, err, Bees?</a>
+    	</div>
+    	
+    </div>
+	<span class="post-postedby">posted by esells on Mar 18, 2015</span>
+	<div class="row">
+		<div class="twelve columns">
+			
+
+<h3 id="killabees-on-the-swarm-literally:3c794f4bfe616a5304fbe2573b9e44c8">Killabees on the swarm, literally</h3>
+
+<p>At work we are running most of our applications in Docker Swarm. So far it has been mostly good and has given us enough confidence in it to continue moving forward. If you are familiar with Docker you know that you basically can use &ldquo;pure&rdquo; Docker and manage it via it&rsquo;s API or command line tools OR you can use one of the many products that have sprung up around Docker that run on top of it offering a whole host of services. Examples of these would be <a href="http://mesosphere.com/">Mesosphere</a>, <a href="http://kubernetes.io/">Kubernetes</a>, the whole <a href="https://coreos.com/">CoreOS</a> stack, etc.
+These are all great products and at one point we were actually running a small test cluster on Mesosphere, but for us and what we wanted, they were just a bit too much. I personally am a bit scared by all of the &ldquo;magic&rdquo; that goes on with most of these products and the complexity that comes with them. On the surface it doesn&rsquo;t seem like much and when things work you forget about it, but when things start heading south and you start having issues it can become a nightmare to track down where the issue is coming from and what is causing it. Assuming you do find the issue, is it something that will have a cascading impact if you try to fix it (fixing A breaks B)?</p>
+
+<p>Everyone wants reliability but our particular suite of products really do need to be reliable (five 9&rsquo;s is our typical SLA). For us, having a lot of complexity on top of a fairly complex product already (Docker) wasn&rsquo;t really making us feel warm and fuzzy so we set out to create our own. The idea was not to go up against something like Mesosphere or Kubernetes, but instead create some tools that are lightweight, do just what we need and are for the most part, standalone. What we came up with is a group of tools that I&rsquo;m calling the killabees (swarm, bees, get it?)</p>
+
+<p><center>
+<figure>
+  <img src="/pics/killabees.png" alt="bees!">
+  <figcaption><b>comin atch&rsquo;ya!</b></figcaption>
+</figure>
+</center></p>
+
+<p>Currently the killabees consists of three tools:</p>
+
+<ul>
+<li><a href="https://github.com/radiantiq/deploy-o-matic">Deploy-o-matic</a>: used for deploying containers and populating VIPs<br /></li>
+<li><a href="https://github.com/radiantiq/flipper">Flipper</a>: used to flip containers from the &ldquo;cold&rdquo; VIP to the &ldquo;hot&rdquo; VIP<br /></li>
+<li><a href="https://github.com/radiantiq/conf-builder">Conf-builder</a>: used to update HAProxy when VIP members change<br /></li>
+</ul>
+
+<p>The only requirement for this to work outside of Docker? <a href="https://consul.io/">Consul</a> and <a href="http://www.haproxy.org/">HAProxy</a> which I&rsquo;m willing to bet most of you have running already.
+We use Consul to track what containers belong to what VIP and then we use HAProxy to act as the front for those VIPs. To explain how it actually works it&rsquo;s probably easier to just pull a blurb from the <a href="http://radiantiq.github.io/deploy-o-matic/">deploy-o-matic page</a>:</p>
+
+<blockquote>
+<blockquote>
+<p>We use a deployment processes based around the Netflix red/black design. In this case, red is our customer facing containers (live, production traffic) and black is our standby set of containers but they are still in production. Basically red = hot, black = cold.</p>
+
+<p>Deploy-o-matic by default will deploy all new containers to the black VIP. This will allow you to do any testing or final shakedowns that you want. Once you are comfortable that everything looks good, you can use another tool from our stack called &ldquo;flipper&rdquo; to copy the containers in the black VIP into the red VIP.</p>
+</blockquote>
+</blockquote>
+
+<p>We wanted to automate as much of the heavy lifting as possible but still be able to look in on the process as it moved along. Since each one of these steps is actually done with a different tool, it&rsquo;s fairly painless to chain them together in a fully automated fashion if that&rsquo;s what you&rsquo;re after.<br />
+The best part (in our minds) is that it&rsquo;s dead easy to troubleshoot. We are only using the Docker API and the Consul API with some logic wrapped around it. If something breaks it&rsquo;s either our code or Docker/Consul and the error message is likely to indicate which one it is.</p>
+
+<p>As noted in most of the github repos for these projects, they are in a very early phase so the code is pretty crazy and there are not as many safety checks as there should be. With that being said though we have successfully deployed to our production clusters many times using the same code that is in github. Things are not where we want them to be yet but the code does run and do what it&rsquo;s supposed to do.<br />
+The one thing missing for us that is on our list is an auto-scaling type daemon that tracks what containers are running and deploys more as needed based on set thresholds. This will again be it&rsquo;s own separate tool using only the Docker API and Consul. Once we have something that is working we&rsquo;ll probably be throwing it up on github as well so keep an eye out if you&rsquo;re interested.</p>
+
+		</div>
+	</div>
+	
+	<div class="row">
+        <div class="twelve columns">
+            &nbsp;
+        </div>
+    </div>
+
+    <div id="footer" class="row">
+    	<div class="twelve columns">
+			<center>
+			<span style="font-size: small;">
+				[ theme created by <a href="http://github.com/esell" style="text-decoration: none;" target="#">esell</a> ]
+			</span>
+			</center>
+		</div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
