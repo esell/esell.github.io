@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/b/post/</link>
+    <link>http://http:/esell.github.io/post/</link>
     <description>Recent content in Posts on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Jan 2016 19:16:35 -0700</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/b/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://http:/esell.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Deploying the Latest Hot App on AWS for Free*</title>
-      <link>http://esheavyindustries.com/b/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</link>
+      <link>http://http/esell.github.io/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</link>
       <pubDate>Fri, 01 Jan 2016 19:16:35 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/b/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</guid>
+      <guid>http://http/esell.github.io/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</guid>
       <description>
 
 &lt;h3 id=&#34;wait-what:028da4a231a5317af863941c3c91d223&#34;&gt;Wait, what?&lt;/h3&gt;
@@ -84,10 +84,10 @@ With the goal of keeping things free I just went with a single cache.t2.micro in
     
     <item>
       <title>Elasticsearch in Production, at Scale: One Man&#39;s Story</title>
-      <link>http://esheavyindustries.com/b/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</link>
+      <link>http://http/esell.github.io/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</link>
       <pubDate>Tue, 24 Mar 2015 18:43:05 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/b/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</guid>
+      <guid>http://http/esell.github.io/2015/03/elasticsearch-in-production-at-scale-one-mans-story/</guid>
       <description>
 
 &lt;h4 id=&#34;in-the-beginning:f90d37087c90d70a24c8fee54358486d&#34;&gt;In the Beginning&amp;hellip;&lt;/h4&gt;
@@ -159,10 +159,10 @@ I realize that is a fairly abrupt end to the story without a real success or fai
     
     <item>
       <title>Unleash the Hounds, err, Bees?</title>
-      <link>http://esheavyindustries.com/b/2015/03/unleash-the-hounds-err-bees/</link>
+      <link>http://http/esell.github.io/2015/03/unleash-the-hounds-err-bees/</link>
       <pubDate>Wed, 18 Mar 2015 22:10:39 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/b/2015/03/unleash-the-hounds-err-bees/</guid>
+      <guid>http://http/esell.github.io/2015/03/unleash-the-hounds-err-bees/</guid>
       <description>
 
 &lt;h3 id=&#34;killabees-on-the-swarm-literally:3c794f4bfe616a5304fbe2573b9e44c8&#34;&gt;Killabees on the swarm, literally&lt;/h3&gt;
@@ -174,7 +174,7 @@ These are all great products and at one point we were actually running a small t
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/b/b/pics/killabees.png&#34; alt=&#34;bees!&#34;&gt;
+  &lt;img src=&#34;http://http://esell.github.io/b/pics/killabees.png&#34; alt=&#34;bees!&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;comin atch&amp;rsquo;ya!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -208,10 +208,10 @@ The one thing missing for us that is on our list is an auto-scaling type daemon 
     
     <item>
       <title>Amazing Chaos aka Parenthood</title>
-      <link>http://esheavyindustries.com/b/2015/02/amazing-chaos-aka-parenthood/</link>
+      <link>http://http/esell.github.io/2015/02/amazing-chaos-aka-parenthood/</link>
       <pubDate>Wed, 25 Feb 2015 20:34:11 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/b/2015/02/amazing-chaos-aka-parenthood/</guid>
+      <guid>http://http/esell.github.io/2015/02/amazing-chaos-aka-parenthood/</guid>
       <description>&lt;p&gt;&lt;em&gt;this post stems from reading horrible news stories, multiple days in a row, about young children dieing because of parental neglect and/or abuse and wondering how someone could do something so awful&amp;hellip;&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;ldquo;The hardest job you&amp;rsquo;ll ever love&amp;rdquo; is a perfect phrase describing what parenting is to me. I have dealt with quite a wide range of things in my life and none of them even come close to the difficulty of the first 3 months with my son. Sure, everyone knows about the lack of sleep but what about the stress? You are now responsible for a living, breathing person that is 100% dependent on you for survival.
@@ -238,10 +238,10 @@ It has been quite the shift in mindset as now I am always thinking about what I 
     
     <item>
       <title>Wrangling Zookeeper</title>
-      <link>http://esheavyindustries.com/b/2015/01/wrangling-zookeeper/</link>
+      <link>http://http/esell.github.io/2015/01/wrangling-zookeeper/</link>
       <pubDate>Sat, 31 Jan 2015 22:02:17 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/b/2015/01/wrangling-zookeeper/</guid>
+      <guid>http://http/esell.github.io/2015/01/wrangling-zookeeper/</guid>
       <description>
 
 &lt;h5 id=&#34;spof:12b272660e693d03fef595b262170b60&#34;&gt;SPOF&lt;/h5&gt;
@@ -250,7 +250,7 @@ It has been quite the shift in mindset as now I am always thinking about what I 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/b/b/pics/zookeeper_small.gif&#34; alt=&#34;zookeeper&#34;&gt;
+  &lt;img src=&#34;http://http://esell.github.io/b/pics/zookeeper_small.gif&#34; alt=&#34;zookeeper&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;smug bastard&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -272,7 +272,7 @@ It has been quite the shift in mindset as now I am always thinking about what I 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/b/b/pics/jackpot.jpg&#34; alt=&#34;jackpot&#34;&gt;
+  &lt;img src=&#34;http://http://esell.github.io/b/pics/jackpot.jpg&#34; alt=&#34;jackpot&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;blammo!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -293,10 +293,10 @@ It has been quite the shift in mindset as now I am always thinking about what I 
     
     <item>
       <title>So long and thanks for all the shoes...</title>
-      <link>http://esheavyindustries.com/b/2015/01/so-long-and-thanks-for-all-the-shoes.../</link>
+      <link>http://http/esell.github.io/2015/01/so-long-and-thanks-for-all-the-shoes.../</link>
       <pubDate>Sun, 11 Jan 2015 21:15:54 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/b/2015/01/so-long-and-thanks-for-all-the-shoes.../</guid>
+      <guid>http://http/esell.github.io/2015/01/so-long-and-thanks-for-all-the-shoes.../</guid>
       <description>&lt;p&gt;It&amp;rsquo;s kind of strange to start off a new blog with a goodbye post&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;After many years of living in the world of large corporations and the herd mindset I am going back to doing what I love: &lt;strong&gt;building shit&lt;/strong&gt;.&lt;/p&gt;
