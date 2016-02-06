@@ -6,7 +6,7 @@
 		<meta name="author" content="esells">
 		<meta name="generator" content="Hugo 0.15" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+                <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
 		<link rel="stylesheet" href="http://esheavyindustries.com//css/normalize.css">
 		<link rel="stylesheet" href="http://esheavyindustries.com//css/skeleton.css">
 		<link rel="stylesheet" href="http://esheavyindustries.com//css/custom.css">
@@ -23,15 +23,9 @@ ga('send', 'pageview');
 </script>
 
 	</head>
-	<body>
-		<div class="container" style="background-color:#FFFFFF; border-bottom: 0px solid #eee;">
+	<body class="color-scheme-dark">
+		<div class="container" style="border-bottom: 0px solid #eee;">
 			<div class="row">
-				<div class="eight columns">
-					<a href="http://esheavyindustries.com/" style="text-decoration: none; color: #333;"><span style="font-size: 36px; ">es<b>HeavyIndustries</b></span></a>
-					
-					<span style="font-size: 14px;">|<i>life, hobbies, work</i></span>
-					
-				</div>
 				<div class="four columns" >
 					
 					
@@ -53,13 +47,28 @@ ga('send', 'pageview');
 			</div>
 		</div>
 		<div class="container">
-			
-			<div class="row">
-				<div class="twelve columns" >
-					<img class="u-max-full-width" src="http://esheavyindustries.com//img/City-Under-Heat.jpg">
-				</div>
-			</div>
-			
+                        <div class="row">
+                            <div class="twelve columns">
+<center>
+                                <pre style="font-size: 9px;">
+<a href="http://esheavyindustries.com/"><span class="ascii-row-one"> .,:::::: .::::::.  </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-two"> ;;;;'''';;;`    `  </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-three"> [[cccc '[==/[[[[, </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-four"> $$""""   '''    $ </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-five"> 888oo,__88b    dP </span></a>
+<a href="http://esheavyindustries.com/"> <span class="ascii-row-six">""""YUMMM"YMmMY"  </span></a>
+
+<a href="http://esheavyindustries.com/"><span class="ascii-row-one">   ::   .: .,::::::   :::.  :::      .::..-:.     ::-.  ::::::.    :::.:::::::-.   ...    ::: .::::::.:::::::::::::::::::..   :::.,:::::: .::::::.</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-two">  ,;;   ;;,;;;;''''   ;;`;; ';;,   ,;;;'  ';;.   ;;;;'  ;;;`;;;;,  `;;; ;;,   `';, ;;     ;;;;;;`    `;;;;;;;;'''';;;;``;;;;  ;;;;;;;'''';;;`    `</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-three">  ,[[[,,,[[[ [[cccc   ,[[ '[[,\[[  .[[/      '[[,[[['    [[[  [[[[[. '[[ `[[     [[[['     [[['[==/[[[[,    [[      [[[,/[[['  [[[ [[cccc '[==/[[[[,</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-four">  "$$$"""$$$ $$""""  c$$$cc$$$cY$c.$$"         c$$"      $$$  $$$ "Y$c$$  $$,    $$$$      $$$  '''    $    $$      $$$$$$c    $$$ $$""""   '''    $</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-five">   888   "88o888oo,__ 888   888,Y88P         ,8P"`       888  888    Y88  888_,o8P'88    .d888 88b    dP    88,     888b "88bo,888 888oo,__88b    dP</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-six">  MMM    YMM""""YUMMMYMM   ""`  MP         mM"          MMM  MMM     YM  MMMMP"`   "YmmMMMM""  "YMmMY"     MMM     MMMM   "W" MMM """"YUMMM"YMmMY"</span></a>
+
+                                </pre>
+</center>
+                            </div>
+                        </div>
 
 
 
@@ -68,106 +77,25 @@ ga('send', 'pageview');
 
 <div class="row">
 	<div class="twelve column">
-		<a class="post-title-link" href="http://esheavyindustries.com/2016/01/deploying-the-latest-hot-app-on-aws-for-free/">Deploying the Latest Hot App on AWS for Free*</a>
+		<a class="post-title-link" href="http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/">deb-simple, a no frills apt repository server</a>
 	</div>
 </div>
 
 <div class="row">
 	<div class="twelve columns">
 		<p style="padding-left:2px; margin-left:2px; padding-bottom:0px; margin-bottom:0px;">
-			Wait, what? AWS (Amazon Web Services) provides a free tier for new customers that allows you to play around with most of their services for a year without paying a cent. If you did not know that, you should head over to their page here and take a look at the details. This free tier is great for people who want to play around with the various AWS offerings without having to commit to anything.
+			I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that: Supported multiple versions of the same package Didn&rsquo;t care about signing or &ldquo;changes&rdquo; files Allowed us to upload via an API or some type of incoming directory Could handle multiple packages coming in at once without corrupting the repo Was easy to setup/maintain There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case.
 		</p>
 	</div>
 </div>
 <div class="row">
 	<div class="nine columns">
-		<span class="post-postedby">posted by esells on Jan 01, 2016</span>
+		<span class="post-postedby">posted by esells on Feb 03, 2016</span>
 	</div>
 	<div class="three columns">
 		<span style="font-size:small;">
 			
-			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/dev">dev</a> <a href="http://esheavyindustries.com/tags/go">Go</a> <a href="http://esheavyindustries.com/tags/aws">AWS</a> 
-			
-		</span>
-	</div>
-</div>
-<br>
-
-<div class="row">
-	<div class="twelve column">
-		<a class="post-title-link" href="http://esheavyindustries.com/2015/03/elasticsearch-in-production-at-scale-one-mans-story/">Elasticsearch in Production, at Scale: One Man&#39;s Story</a>
-	</div>
-</div>
-
-<div class="row">
-	<div class="twelve columns">
-		<p style="padding-left:2px; margin-left:2px; padding-bottom:0px; margin-bottom:0px;">
-			In the Beginning&hellip; A few years ago I was part of a team that had a logging problem. We were part of an older style architecture and were charged with supporting all of the &ldquo;middleware&rdquo; which in this case, was pretty much everything except the databases or the physical servers. This company was a fairly large company, one of the leaders in it&rsquo;s industry so we dealt with a wide range of &ldquo;middleware&rdquo; services which each had different levels of criticality and volume.
-		</p>
-	</div>
-</div>
-<div class="row">
-	<div class="nine columns">
-		<span class="post-postedby">posted by esells on Mar 24, 2015</span>
-	</div>
-	<div class="three columns">
-		<span style="font-size:small;">
-			
-			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/elasticsearch">elasticsearch</a> <a href="http://esheavyindustries.com/tags/java">java</a> <a href="http://esheavyindustries.com/tags/logs">logs</a> 
-			
-		</span>
-	</div>
-</div>
-<br>
-
-<div class="row">
-	<div class="twelve column">
-		<a class="post-title-link" href="http://esheavyindustries.com/2015/03/unleash-the-hounds-err-bees/">Unleash the Hounds, err, Bees?</a>
-	</div>
-</div>
-
-<div class="row">
-	<div class="twelve columns">
-		<p style="padding-left:2px; margin-left:2px; padding-bottom:0px; margin-bottom:0px;">
-			Killabees on the swarm, literally At work we are running most of our applications in Docker Swarm. So far it has been mostly good and has given us enough confidence in it to continue moving forward. If you are familiar with Docker you know that you basically can use &ldquo;pure&rdquo; Docker and manage it via it&rsquo;s API or command line tools OR you can use one of the many products that have sprung up around Docker that run on top of it offering a whole host of services.
-		</p>
-	</div>
-</div>
-<div class="row">
-	<div class="nine columns">
-		<span class="post-postedby">posted by esells on Mar 18, 2015</span>
-	</div>
-	<div class="three columns">
-		<span style="font-size:small;">
-			
-			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/dev">dev</a> <a href="http://esheavyindustries.com/tags/go">Go</a> <a href="http://esheavyindustries.com/tags/docker">docker</a> <a href="http://esheavyindustries.com/tags/waytooearly">waytooearly</a> 
-			
-		</span>
-	</div>
-</div>
-<br>
-
-<div class="row">
-	<div class="twelve column">
-		<a class="post-title-link" href="http://esheavyindustries.com/2015/02/amazing-chaos-aka-parenthood/">Amazing Chaos aka Parenthood</a>
-	</div>
-</div>
-
-<div class="row">
-	<div class="twelve columns">
-		<p style="padding-left:2px; margin-left:2px; padding-bottom:0px; margin-bottom:0px;">
-			this post stems from reading horrible news stories, multiple days in a row, about young children dieing because of parental neglect and/or abuse and wondering how someone could do something so awful&hellip; &ldquo;The hardest job you&rsquo;ll ever love&rdquo; is a perfect phrase describing what parenting is to me. I have dealt with quite a wide range of things in my life and none of them even come close to the difficulty of the first 3 months with my son.
-		</p>
-	</div>
-</div>
-<div class="row">
-	<div class="nine columns">
-		<span class="post-postedby">posted by esells on Feb 25, 2015</span>
-	</div>
-	<div class="three columns">
-		<span style="font-size:small;">
-			
-			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/life">life</a> <a href="http://esheavyindustries.com/tags/diapers">diapers</a> <a href="http://esheavyindustries.com/tags/nosleep">nosleep</a> <a href="http://esheavyindustries.com/tags/amazing">amazing</a> 
+			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/dev" class="tag-link">dev</a> <a href="http://esheavyindustries.com/tags/go" class="tag-link">Go</a> 
 			
 		</span>
 	</div>
@@ -178,8 +106,6 @@ ga('send', 'pageview');
 	<div class="twelve columns">
 		<center>
 			
-			
-			<a href="/page/2/"><i class="fa fa-arrow-circle-right fa-2x"></i></a>
 			
 		</center>
 	</div>
@@ -195,7 +121,7 @@ ga('send', 'pageview');
 	<div class="twelve columns">
 		<center>
 			<span style="font-size: small;">
-				[ theme created by <a href="http://github.com/esell" style="text-decoration: none;" target="#">esell</a> ]
+				[ theme created by <a href="http://github.com/esell" class="copyright-link" target="#">esell</a> ]
 			</span>
 		</center>
 	</div>

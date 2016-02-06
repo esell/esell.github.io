@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Go</title>
+		<title>deb-simple, a no frills apt repository server</title>
 		<meta name="author" content="esells">
 		<meta name="generator" content="Hugo 0.15" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,13 +71,40 @@ ga('send', 'pageview');
                         </div>
 
 
+
 <div class="row">
-	<h2>Go:</h2>
 	<div class="twelve columns">
-		
-		Feb 03, 2016 - <a href="http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/" class="cat-list-link">deb-simple, a no frills apt repository server</a>
-		<br>
-		
+		<a class="post-title-link" href="http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/">deb-simple, a no frills apt repository server</a>
+	</div>
+</div>
+<div class="row">
+	<div class="nine columns">
+		<span class="post-postedby">posted by esells on Feb 03, 2016</span>
+	</div>
+	<div class="three columns">
+		<span style="font-size:small;">
+			
+			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/dev" class="tag-link">dev</a> <a href="http://esheavyindustries.com/tags/go" class="tag-link">Go</a> 
+			
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="twelve columns">
+		<p>I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:</p>
+
+<ul>
+<li>Supported multiple versions of the same package</li>
+<li>Didn&rsquo;t care about signing or &ldquo;changes&rdquo; files</li>
+<li>Allowed us to upload via an API or some type of incoming directory</li>
+<li>Could handle multiple packages coming in at once without corrupting the repo</li>
+<li>Was easy to setup/maintain</li>
+</ul>
+
+<p>There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was <a href="https://github.com/esell/deb-simple">deb-simple</a>.</p>
+
+<p>Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&rsquo;t become corrupted.</p>
+
 	</div>
 </div>
 

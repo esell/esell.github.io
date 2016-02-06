@@ -6,183 +6,28 @@
     <description>Recent content in Go on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2016 19:16:35 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 03 Feb 2016 01:46:49 -0700</lastBuildDate>
     <atom:link href="http://esheavyindustries.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Deploying the Latest Hot App on AWS for Free*</title>
-      <link>http://esheavyindustries.com/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</link>
-      <pubDate>Fri, 01 Jan 2016 19:16:35 -0700</pubDate>
+      <title>deb-simple, a no frills apt repository server</title>
+      <link>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
+      <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/01/deploying-the-latest-hot-app-on-aws-for-free/</guid>
-      <description>
-
-&lt;h3 id=&#34;wait-what:028da4a231a5317af863941c3c91d223&#34;&gt;Wait, what?&lt;/h3&gt;
-
-&lt;p&gt;AWS (Amazon Web Services) provides a free tier for new customers that allows you to play around with most of their services for a year without paying a cent. If you did not know that, you should head over to their page &lt;a href=&#34;https://aws.amazon.com/free/&#34;&gt;here&lt;/a&gt; and take a look at the details.&lt;/p&gt;
-
-&lt;p&gt;This free tier is great for people who want to play around with the various AWS offerings without having to commit to anything. It is also a great way to deploy a new web app which is what I recently did and will cover in this post.&lt;/p&gt;
-
-&lt;p&gt;Understand that what I&amp;rsquo;m talking about here is a bare-bones infrastructure that is good for low-volume, single region setups. This setup is NOT what you would typically use in your real production infrastructure but because of the way AWS is setup, you could easily scale out to a more fault tolerant architecture later without much work.&lt;/p&gt;
-
-&lt;h3 id=&#34;free:028da4a231a5317af863941c3c91d223&#34;&gt;&amp;ldquo;Free&amp;rdquo;&lt;/h3&gt;
-
-&lt;p&gt;Everything I talk about in this article was done using the free AWS tier except for the domain name. So when I say free I am not including the cost of purchasing a domain name but that is also technically not something you need in order to make this work.&lt;/p&gt;
-
-&lt;p&gt;Also I think it&amp;rsquo;s worth mentioning again that this architecture works for your initial site or your proof-of-concept. Don&amp;rsquo;t expect to run an app that is taking millions of hits a day on the free tier.&lt;/p&gt;
-
-&lt;h3 id=&#34;background:028da4a231a5317af863941c3c91d223&#34;&gt;Background&lt;/h3&gt;
-
-&lt;p&gt;I had a pet project of mine where the goal was to create an online wish list site that was basic, fast and just did what it was told. I wanted to create something that was super simple to use so that anyone in your family could use it. As this was a pet project I also didn&amp;rsquo;t want to put in a lot of time supporting it or babysitting it. I wanted it to &amp;ldquo;just work&amp;rdquo; without me having to setup a metric ass ton of systems to support it.&lt;/p&gt;
-
-&lt;p&gt;The end result came out as &lt;a href=&#34;https://thewishler.com&#34;&gt;The Wishler&lt;/a&gt;. Feel free to check it out, it&amp;rsquo;s a live app and works as advertised so go nuts.&lt;/p&gt;
-
-&lt;p&gt;Many of the things I ended up doing are just basic AWS best practices.&lt;/p&gt;
-
-&lt;h3 id=&#34;how-i-did-it:028da4a231a5317af863941c3c91d223&#34;&gt;How I did it&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is not meant to be a step-by-step tutorial but more of just a high-level overview on how one person stitched together various AWS offerings. The AWS documentation is pretty good so if you are new to AWS I&amp;rsquo;d suggest checking those out.&lt;/p&gt;
-
-&lt;p&gt;I knew at the core what I wanted for The Wishler (an app server and a database) but the overall process was very iterative. I think this is one area where AWS really shines compared to other cloud providers. They have such a large catalog of offerings that you can basically hit a spot during your development where you think &amp;ldquo;I could really use something that did _____&amp;rdquo; and then jump onto their site and find a solution that matches up well.&lt;/p&gt;
-
-&lt;p&gt;So let&amp;rsquo;s start at the beginning then: the app server. Since I was determined to stick to the free tier I decided to go with a standalone EC2 instance behind an Elastic Load Balancer. My actual app is a great candidate for Docker but with the way the EC2 Container service works you need to run your containers on EC2 instances. The only instance type that is free however is the t2.micro which I felt was not a great candidate for multiple containers.&lt;/p&gt;
-
-&lt;p&gt;Now that I knew what I was going to run my app on, I needed to come up with a way that would allow it to scale when the time comes. Since I didn&amp;rsquo;t want to support additional load balancers and I really didn&amp;rsquo;t want to come up with the glue to bring the process together I went with an off-the-shelf AWS Auto Scaling group and Elastic Load Balancer. The beauty in these (for me) is that if I outgrow the free tier for some reason I&amp;rsquo;ll easily be able to scale pretty quickly. An example would be that my tiny t2.micro app server can no longer handle all the requests coming in. With an API call or a click of a button I can spin up a couple more t2.micro instances behind the already existing Elastic Load Balancer. No configuration changes, no IPs to keep track of just a simple way to handle growth.&lt;/p&gt;
-
-&lt;p&gt;In order to use Auto scaling groups you&amp;rsquo;ll either need to create a base image that has something on it to install your app during start-up or use the user-data option. My app is written in Go and is pretty simple so I decided to lean some more on the free tier from AWS and use their CodeCommit product which is basically just a remote git repo. On start-up the instance will install the required Go tooling, checkout the master branch from CodeCommit, build it and start it up. There were quite a few options here that would have worked as well (creating a base AMI, keeping a deb file in S3, etc) but this gave me an excuse to play with another AWS product.&lt;/p&gt;
-
-&lt;p&gt;At this point I now had an ELB pointed at my ASG which meant users could reach the site&amp;hellip; if they knew how to get to it. Using IPs to reach sites is not very popular these days so I decided to register a new domain &lt;a href=&#34;https://thewishler.com&#34;&gt;thewishler.com&lt;/a&gt; and instead of using my registrars DNS tools use the AWS Route53 product. Route53 makes it super simple to plugin to existing AWS infrastructure and also supports some more advanced DNS level load balancing such as geo-location and latency. I should also point out that I did lie a bit and Route53 will cost you about $0.90 a month assuming you have one zone (domain) and keep under 1 million DNS queries. Once Route53 was setup I simply pointed my domain at my already existing ELB and ta-da!&lt;/p&gt;
-
-&lt;p&gt;Alright, so now I was at a point where I could serve up static pages so it was time to look at what I was going to use for the backend/database. I decided to go with Redis doing a rolling hourly snapshot to S3 which might seem kind of odd so let me explain. I am forward thinking so I wanted something that was going to easily scale not only across availability zones, but also across regions. When I say &amp;ldquo;easily&amp;rdquo; I mean something that from a maintenance and configuration standpoint is easy. I think for my specific application an RDBMS like MySQL or Postgres would have been a good fit but my experience with getting them to easily scale across regions has been more work than I wanted to put in.
-Additionally the data I am dealing with is not what I consider critical data. If there is a complete failure and the database needs to be restored, missing an hour worth of data is not going to be the end of the world (in my opinion). On top of that Redis is fast which was a big factor for me.
-Back on track&amp;hellip; So Redis is my backend which meant that I could use the AWS ElastiCache offering. ElastiCache offers either Memcached or Redis for the engine type so it was a great fit for me. I can still develop against a local Redis instance and then deploy to AWS without having to change anything. Additionally ElastiCache is kind of like an ASG for Redis. If I need to I can increase the number of instances in the cluster, scale them out across availability zones, create replication groups, etc. All of this is done via a few button clicks or the API and I don&amp;rsquo;t have to manage individual instances or installs which is really &lt;strong&gt;really&lt;/strong&gt; nice.
-With the goal of keeping things free I just went with a single cache.t2.micro instance and called it a day.&lt;/p&gt;
-
-&lt;p&gt;I was feeling pretty good now because I had the core of my app up and running in a somewhat robust setup in the sense that if an instance died off or failed it would be replaced with minimum downtime and it was all free*. I also didn&amp;rsquo;t have to manage a damn thing and actually didn&amp;rsquo;t even know the IP of any instance in my existing setup, all I cared about was pushing code to CodeCommit aka git and refreshing the ASG to pick-up the changes.&lt;/p&gt;
-
-&lt;p&gt;The code was coming along well until I hit a point where I realized I would have to occasionally send e-mails to people. As part of &lt;a href=&#34;https://thewishler.com&#34;&gt;The Wishler&lt;/a&gt; password reset process the app sends out a unique reset ID via e-mail. Given that these e-mails are related to password resets I wanted them to hit the inbox and not get flagged as spam. I also did not want to manage an SMTP server. Guess what? AWS has an app for that called SES that allows you to send e-mails either via an API or plain ol SMTP using the AWS mail servers. This means another thing I don&amp;rsquo;t have to manage AND the servers are on IPs that are not going to get flagged as spam. The setup was super simple and since I was already using Route53 all of the DKIM stuff was setup for me.&lt;/p&gt;
-
-&lt;h3 id=&#34;and-then:028da4a231a5317af863941c3c91d223&#34;&gt;And then&amp;hellip;&lt;/h3&gt;
-
-&lt;p&gt;Now I&amp;rsquo;m at a point where all of the app works and does what I want using the following products:&lt;/p&gt;
+      <guid>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
+      <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;EC2&lt;/li&gt;
-&lt;li&gt;ElastiCache&lt;/li&gt;
-&lt;li&gt;Route53&lt;/li&gt;
-&lt;li&gt;CodeCommit&lt;/li&gt;
-&lt;li&gt;SES&lt;/li&gt;
+&lt;li&gt;Supported multiple versions of the same package&lt;/li&gt;
+&lt;li&gt;Didn&amp;rsquo;t care about signing or &amp;ldquo;changes&amp;rdquo; files&lt;/li&gt;
+&lt;li&gt;Allowed us to upload via an API or some type of incoming directory&lt;/li&gt;
+&lt;li&gt;Could handle multiple packages coming in at once without corrupting the repo&lt;/li&gt;
+&lt;li&gt;Was easy to setup/maintain&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;and am already re-thinking some things that could change or that could be re-done. One thing I&amp;rsquo;ve been toying around with was using the Lambda service to get rid of servers but since the app is already written in Go I would need to re-write everything. I&amp;rsquo;d also like to wrap in the CodeDeploy and CodePipeline services since I only have a single app and would be able to stay on the free tier.&lt;/p&gt;
+&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;so-when-aws-goes-under:028da4a231a5317af863941c3c91d223&#34;&gt;So when AWS goes under&lt;/h3&gt;
-
-&lt;p&gt;One of the biggest risks with this is that even though I haven&amp;rsquo;t put any AWS specific API calls or anything into my code, if AWS was going to close at the end of the month I would have some problems. The biggest of course would be replicating the services on my own hardware or VMs. It&amp;rsquo;s easy enough to just setup a basic SMTP box or HAProxy load balancer, the complications come into play when you start talking about multiple availability zones and regions. Keeping things simple while allowing yourself to scale with a push of a button is something that AWS does a really good job of and that is not easy to replicate. My personal belief is to develop your application(s) to use non-vendor specific APIs or whatever so that you can easily move it if needed, but until that point comes leverage the offerings your vendor has and spend the time you&amp;rsquo;re saving to improve your application.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Unleash the Hounds, err, Bees?</title>
-      <link>http://esheavyindustries.com/2015/03/unleash-the-hounds-err-bees/</link>
-      <pubDate>Wed, 18 Mar 2015 22:10:39 -0600</pubDate>
-      
-      <guid>http://esheavyindustries.com/2015/03/unleash-the-hounds-err-bees/</guid>
-      <description>
-
-&lt;h3 id=&#34;killabees-on-the-swarm-literally:3c794f4bfe616a5304fbe2573b9e44c8&#34;&gt;Killabees on the swarm, literally&lt;/h3&gt;
-
-&lt;p&gt;At work we are running most of our applications in Docker Swarm. So far it has been mostly good and has given us enough confidence in it to continue moving forward. If you are familiar with Docker you know that you basically can use &amp;ldquo;pure&amp;rdquo; Docker and manage it via it&amp;rsquo;s API or command line tools OR you can use one of the many products that have sprung up around Docker that run on top of it offering a whole host of services. Examples of these would be &lt;a href=&#34;http://mesosphere.com/&#34;&gt;Mesosphere&lt;/a&gt;, &lt;a href=&#34;http://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt;, the whole &lt;a href=&#34;https://coreos.com/&#34;&gt;CoreOS&lt;/a&gt; stack, etc.
-These are all great products and at one point we were actually running a small test cluster on Mesosphere, but for us and what we wanted, they were just a bit too much. I personally am a bit scared by all of the &amp;ldquo;magic&amp;rdquo; that goes on with most of these products and the complexity that comes with them. On the surface it doesn&amp;rsquo;t seem like much and when things work you forget about it, but when things start heading south and you start having issues it can become a nightmare to track down where the issue is coming from and what is causing it. Assuming you do find the issue, is it something that will have a cascading impact if you try to fix it (fixing A breaks B)?&lt;/p&gt;
-
-&lt;p&gt;Everyone wants reliability but our particular suite of products really do need to be reliable (five 9&amp;rsquo;s is our typical SLA). For us, having a lot of complexity on top of a fairly complex product already (Docker) wasn&amp;rsquo;t really making us feel warm and fuzzy so we set out to create our own. The idea was not to go up against something like Mesosphere or Kubernetes, but instead create some tools that are lightweight, do just what we need and are for the most part, standalone. What we came up with is a group of tools that I&amp;rsquo;m calling the killabees (swarm, bees, get it?)&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/killabees.png&#34; alt=&#34;bees!&#34;&gt;
-  &lt;figcaption&gt;&lt;b&gt;comin atch&amp;rsquo;ya!&lt;/b&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;p&gt;Currently the killabees consists of three tools:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/radiantiq/deploy-o-matic&#34;&gt;Deploy-o-matic&lt;/a&gt;: used for deploying containers and populating VIPs&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/radiantiq/flipper&#34;&gt;Flipper&lt;/a&gt;: used to flip containers from the &amp;ldquo;cold&amp;rdquo; VIP to the &amp;ldquo;hot&amp;rdquo; VIP&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/radiantiq/conf-builder&#34;&gt;Conf-builder&lt;/a&gt;: used to update HAProxy when VIP members change&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The only requirement for this to work outside of Docker? &lt;a href=&#34;https://consul.io/&#34;&gt;Consul&lt;/a&gt; and &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt; which I&amp;rsquo;m willing to bet most of you have running already.
-We use Consul to track what containers belong to what VIP and then we use HAProxy to act as the front for those VIPs. To explain how it actually works it&amp;rsquo;s probably easier to just pull a blurb from the &lt;a href=&#34;http://radiantiq.github.io/deploy-o-matic/&#34;&gt;deploy-o-matic page&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;We use a deployment processes based around the Netflix red/black design. In this case, red is our customer facing containers (live, production traffic) and black is our standby set of containers but they are still in production. Basically red = hot, black = cold.&lt;/p&gt;
-
-&lt;p&gt;Deploy-o-matic by default will deploy all new containers to the black VIP. This will allow you to do any testing or final shakedowns that you want. Once you are comfortable that everything looks good, you can use another tool from our stack called &amp;ldquo;flipper&amp;rdquo; to copy the containers in the black VIP into the red VIP.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;We wanted to automate as much of the heavy lifting as possible but still be able to look in on the process as it moved along. Since each one of these steps is actually done with a different tool, it&amp;rsquo;s fairly painless to chain them together in a fully automated fashion if that&amp;rsquo;s what you&amp;rsquo;re after.&lt;br /&gt;
-The best part (in our minds) is that it&amp;rsquo;s dead easy to troubleshoot. We are only using the Docker API and the Consul API with some logic wrapped around it. If something breaks it&amp;rsquo;s either our code or Docker/Consul and the error message is likely to indicate which one it is.&lt;/p&gt;
-
-&lt;p&gt;As noted in most of the github repos for these projects, they are in a very early phase so the code is pretty crazy and there are not as many safety checks as there should be. With that being said though we have successfully deployed to our production clusters many times using the same code that is in github. Things are not where we want them to be yet but the code does run and do what it&amp;rsquo;s supposed to do.&lt;br /&gt;
-The one thing missing for us that is on our list is an auto-scaling type daemon that tracks what containers are running and deploys more as needed based on set thresholds. This will again be it&amp;rsquo;s own separate tool using only the Docker API and Consul. Once we have something that is working we&amp;rsquo;ll probably be throwing it up on github as well so keep an eye out if you&amp;rsquo;re interested.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Wrangling Zookeeper</title>
-      <link>http://esheavyindustries.com/2015/01/wrangling-zookeeper/</link>
-      <pubDate>Sat, 31 Jan 2015 22:02:17 -0700</pubDate>
-      
-      <guid>http://esheavyindustries.com/2015/01/wrangling-zookeeper/</guid>
-      <description>
-
-&lt;h5 id=&#34;spof:12b272660e693d03fef595b262170b60&#34;&gt;SPOF&lt;/h5&gt;
-
-&lt;p&gt;SPOF = Single Point of Failure and we had one. It wasn&amp;rsquo;t a traditional failure point like having a critical service running on a single server or something, it was the fact that we had no way to auto-scale, or at least automate spinning up, one of our key components: &lt;a href=&#34;http://zookeeper.apache.org/&#34;&gt;Apache Zookeeper&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/zookeeper_small.gif&#34; alt=&#34;zookeeper&#34;&gt;
-  &lt;figcaption&gt;&lt;b&gt;smug bastard&lt;/b&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;p&gt;As we had been drawing up the architecture for our new environment one of the requirements is everything must auto-scale or be push button. Since we will be working in AWS, the architecture has been designed to handle failures across the board. Having something that can&amp;rsquo;t self heal or be re-provisioned without human intervention is dumb and would break our entire goal. There have been too many times where I&amp;rsquo;ve heard &amp;ldquo;So everything is automated&amp;hellip; except this one part that fails all the time and we have to pay a team to monitor 24 hours a day. Oh and by the way that part that fails all the time is key to everything else working&amp;rdquo;. Unfortunately Zookeeper is a bit old in it&amp;rsquo;s ways and still requires a few areas of manual configuration and taking it out of our stack was not an option so what options did we have?&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Accept that we couldn&amp;rsquo;t automate this part and that despite our grand idea of what could be we would just build the same hodgepodge of shit everyone else had.&lt;/li&gt;
-&lt;li&gt;Have a go with &lt;a href=&#34;https://github.com/Netflix/exhibitor&#34;&gt;Exhibitor&lt;/a&gt;. Netflix built it so it&amp;rsquo;s gotta be good right?&lt;/li&gt;
-&lt;li&gt;Build our own solution&lt;/li&gt;
-&lt;li&gt;Watch cat videos on youtube&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;A combination of options 3 and 4 is what we ended going with (actually option 4, option 4 some more and then option 3. That led to some more of option 4). Why not option 2? While I&amp;rsquo;m sure Exhibitor is a fantastic app, it just didn&amp;rsquo;t feel right to us. The ideal way to use Exhibitor is with S3 which means we are relying on an AWS service. Our goal is to handle failures across the board so if we have a Zookeeper EC2 instance fail and a regional S3 failure we&amp;rsquo;re fucked. We could probably build around that but it just adds another stack of shit to keep track of. Additionally with Exhibitor all of the Zookeeper management is now done through Exhibitor. This could be a good thing I guess but we didn&amp;rsquo;t want yet another management tool being thrown into the mix.&lt;/p&gt;
-
-&lt;p&gt;Ok, enough gum flapping, here is how we solved the question of the century: how do you automate scaling Zookeeper?&lt;/p&gt;
-
-&lt;p&gt;Enter &lt;a href=&#34;https://github.com/coreos/etcd&#34;&gt;etcd&lt;/a&gt; and &lt;a href=&#34;https://github.com/kelseyhightower/confd&#34;&gt;confd&lt;/a&gt; (plus some custom &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt;)!&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/jackpot.jpg&#34; alt=&#34;jackpot&#34;&gt;
-  &lt;figcaption&gt;&lt;b&gt;blammo!&lt;/b&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;p&gt;We had already been using etcd for service discovery and minor random things we probably shouldn&amp;rsquo;t be using it for so it was already part of our stack. Additionally our etcd groupings had already been built so they fit our requirement of being able to handle catastrophic failure. Confd had been on the radar for another portion of our architecture so we were familiar with it and thought we&amp;rsquo;d toss it in the mix and see what happens. What happened was pure magic! The ability to add and remove Zookeeper instances without any human configuration and no additional AWS services to lean on. I guess it wasn&amp;rsquo;t pure magic but it was pretty cool.&lt;/p&gt;
-
-&lt;p&gt;So how does this whole thing work? I&amp;rsquo;m glad you asked:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;First we wrote a startup wrapper in Go for Zookeeper. At a high level what this wrapper does is control the &amp;ldquo;myid&amp;rdquo; file for the Zookeeper instance. There are various checks in there to make sure that one instance only gets one, previously unused ID. This information is published to etcd. On first start there is no cluster config so this new instance has an id but isn&amp;rsquo;t actually joined to anything.&lt;/li&gt;
-&lt;li&gt;After we had figured out how to publish the information for everyone, we wrote up a quick confd template that builds out the &amp;ldquo;zoo.cfg&amp;rdquo; cluster details. This is the lame part because the number associated with the entry must match the &amp;ldquo;myid&amp;rdquo; of that host. So when you see &amp;ldquo;server.2=zoo2:2888:3888&amp;rdquo; in the config file, zoo2 better have an id of 2 or else shit might go down (literally). Once the config has been populated confd restarts Zookeeper. Confd is always checking in with etcd and updating the &amp;ldquo;zoo.cfg&amp;rdquo; file as needed.&lt;/li&gt;
-&lt;li&gt;We have another tiny Go app that when it has free time, checks the entries in etcd to make sure they are accurate and removes any dead hosts.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So yeah, that&amp;rsquo;s about it, nothing earth shattering by any means but a possible solution for some of you who are looking to do the same thing and for whatever reason are not interested in Exhibitor.&lt;/p&gt;
+&lt;p&gt;Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&amp;rsquo;t become corrupted.&lt;/p&gt;
 </description>
     </item>
     
