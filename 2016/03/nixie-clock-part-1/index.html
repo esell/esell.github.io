@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>nixie clock part 1</title>
+		<meta name="author" content="esells">
+		<meta name="generator" content="Hugo 0.15" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
+		<link rel="stylesheet" href="http://esheavyindustries.com//css/normalize.css">
+		<link rel="stylesheet" href="http://esheavyindustries.com//css/skeleton.css">
+		<link rel="stylesheet" href="http://esheavyindustries.com//css/custom.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58474628-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+	</head>
+	<body class="color-scheme-dark">
+		<div class="container" style="border-bottom: 0px solid #eee;">
+			<div class="row">
+				<div class="four columns" >
+					
+					
+					
+					
+					<a class="navbar-link" href="http://esheavyindustries.com/series/">projects</a>
+					
+					
+					
+					<a class="navbar-link" href="https://github.com/esell/">code</a>
+					
+					
+					
+					<a class="navbar-rlink" href="http://esheavyindustries.com/contact/">contact</a>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		<div class="container">
+                        <div class="row">
+                            <div class="twelve columns">
+<center>
+                                <pre style="font-size: 9px;">
+<a href="http://esheavyindustries.com/"><span class="ascii-row-one"> .,:::::: .::::::.  </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-two"> ;;;;'''';;;`    `  </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-three"> [[cccc '[==/[[[[, </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-four"> $$""""   '''    $ </span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-five"> 888oo,__88b    dP </span></a>
+<a href="http://esheavyindustries.com/"> <span class="ascii-row-six">""""YUMMM"YMmMY"  </span></a>
+
+<a href="http://esheavyindustries.com/"><span class="ascii-row-one">   ::   .: .,::::::   :::.  :::      .::..-:.     ::-.  ::::::.    :::.:::::::-.   ...    ::: .::::::.:::::::::::::::::::..   :::.,:::::: .::::::.</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-two">  ,;;   ;;,;;;;''''   ;;`;; ';;,   ,;;;'  ';;.   ;;;;'  ;;;`;;;;,  `;;; ;;,   `';, ;;     ;;;;;;`    `;;;;;;;;'''';;;;``;;;;  ;;;;;;;'''';;;`    `</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-three">  ,[[[,,,[[[ [[cccc   ,[[ '[[,\[[  .[[/      '[[,[[['    [[[  [[[[[. '[[ `[[     [[[['     [[['[==/[[[[,    [[      [[[,/[[['  [[[ [[cccc '[==/[[[[,</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-four">  "$$$"""$$$ $$""""  c$$$cc$$$cY$c.$$"         c$$"      $$$  $$$ "Y$c$$  $$,    $$$$      $$$  '''    $    $$      $$$$$$c    $$$ $$""""   '''    $</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-five">   888   "88o888oo,__ 888   888,Y88P         ,8P"`       888  888    Y88  888_,o8P'88    .d888 88b    dP    88,     888b "88bo,888 888oo,__88b    dP</span></a>
+<a href="http://esheavyindustries.com/"><span class="ascii-row-six">  MMM    YMM""""YUMMMYMM   ""`  MP         mM"          MMM  MMM     YM  MMMMP"`   "YmmMMMM""  "YMmMY"     MMM     MMMM   "W" MMM """"YUMMM"YMmMY"</span></a>
+
+                                </pre>
+</center>
+                            </div>
+                        </div>
+
+
+
+<div class="row">
+	<div class="twelve columns">
+		<a class="post-title-link" href="http://esheavyindustries.com/2016/03/nixie-clock-part-1/">nixie clock part 1</a>
+	</div>
+</div>
+<div class="row">
+	<div class="nine columns">
+		<span class="post-postedby">posted by esells on Mar 19, 2016</span>
+	</div>
+	<div class="three columns">
+		<span style="font-size:small;">
+			
+			<i class="fa fa-tags"></i> <a href="http://esheavyindustries.com/tags/arduino" class="tag-link">arduino</a> <a href="http://esheavyindustries.com/tags/electronics" class="tag-link">electronics</a> 
+			
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="twelve columns">
+		
+
+<h1 id="nixie-clock-part-1:f1fc92a632fd8952c6aa59df89efca94">Nixie clock part 1</h1>
+
+<p>I enjoy building things and for some reason, I tend to enjoy building more &ldquo;classic&rdquo; things. Awhile back I came across the <a href="https://www.adafruit.com/products/194">Adafruit Ice Tube Clock Kit</a> which I thought was one amazing looking clock. Unfortunately they discontinued it but since I enjoy making things harder on myself than they should be, I went to Google to try and find something similar. What I came across was a pretty popular project called a nixie clock.</p>
+
+<p><center>
+<figure>
+  <img src="/pics/nixie1.jpg" alt="example nixie clock">
+  <figcaption><b>example of a nixie clock</b></figcaption>
+</figure>
+</center></p>
+
+<p>A nixie clock is simply a clock that is built using multiple <a href="https://en.wikipedia.org/wiki/Nixie_tube">nixie tubes</a> for the display. They come in all sorts of different sizes and shapes which makes it easy to design a clock for whatever purpose you want (small desk clock, larger wall clock, etc). In my case I wanted something similar to the Adafruit clock, small enough that I could put it on a desk but still big enough to show off some of the components. I like the mechanical look so I had planned on putting everything in some type of clear case so you could see all of the electronics.</p>
+
+<h2 id="research:f1fc92a632fd8952c6aa59df89efca94">Research</h2>
+
+<p>I am not an electronics guy at all, I can take a bag of parts with a schematic or instructions and solder it all together, but if you are looking at me to design a circuit from the ground up then you are in for a world of hurt.
+Luckily there are a bunch of smart people out there that have built nixie clocks before and have been kind enough to share. One of those people is Andrew Saxén who has not only a great write-up on how he built his nixie clock, but also links to the code that runs it as well as the PCB layout. You can check it out at his site <a href="http://codeterrific.com/arduino/nixie-clock-build">Code Terrific</a>. There are tons of other links out there showing various builds, but for whatever reason Adam&rsquo;s just seemed to click with me so I decided I was going to use what he had already done as my &ldquo;base&rdquo;.</p>
+
+<h2 id="chop-chop:f1fc92a632fd8952c6aa59df89efca94">chop chop</h2>
+
+<p>For my project all I wanted was a clock, I didn&rsquo;t really care about temp or humidity so there wouldn&rsquo;t be a need to include a DHT22 sensor in the build. Additionally, as of right now I plan on having the PCB printed as opposed to etching one at home. This means I&rsquo;ll be able to take advantage of using a two sided PCB. The third change from Adam&rsquo;s original design I&rsquo;d like to make is to directly integrate his real-time clock circuit into the nixie PCB, that way everything is all in one spot.</p>
+
+<p>With all of that I downloaded the <a href="http://fritzing.org/home/">Fritzing</a> application and set out to re-create Adam&rsquo;s PCB as best I could. Once I had that I started to strip away things I didn&rsquo;t think I&rsquo;d need, add some new things and then try and condense it down as much as possible to save on costs. Part of me wanted to make a really nice looking PCB but for my first attempt the cost would have been a bit more than I wanted to spend. I&rsquo;m thinking if this turns out ok I can always re-use the nixie tubes and create a new, fancier PCB later.</p>
+
+<p><center>
+<figure>
+  <img src="/pics/nixieclock-small_pcb.jpg" alt="nixie PCB">
+  <figcaption><b>holy rats nest!</b></figcaption>
+</figure>
+</center></p>
+
+<p>If your skills are at hobbyist electronics person or above I apologize for the mess that is the PCB above :)</p>
+
+<p>With this design it would be about ~$58 for three boards from <a href="https://oshpark.com">OSH Park</a> which isn&rsquo;t that bad for me. With a small child around and a full-time job the ability for me to find time to hand etch these is highly unlikely so it makes more sense to just bite the bullet and have someone else print them.</p>
+
+<h2 id="next-steps:f1fc92a632fd8952c6aa59df89efca94">Next steps</h2>
+
+<p>The base PCB isn&rsquo;t finalized but I think it&rsquo;s close enough for now. The next thing that I have been thinking about is how to mount the tubes. Part of me would like to make an additional PCB and have the tubes slot right into that PCB and then connect it to the other PCB either via headers or a ribbon cable. The problem with that is since I&rsquo;m pretty much useless, I currently don&rsquo;t have the ability to design the libraries needed to mock out IN-8 tubes and I haven&rsquo;t been able to find any existing resources. Everyone seems to have the IN-12A but I just don&rsquo;t like the look of those as much.</p>
+
+<p>Another option would be to use <a href="http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;cPath=4_11&amp;products_id=74">these</a> pre-built &ldquo;sockets&rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&rsquo;m not sure how much they would get me.</p>
+
+<p>The third option is do just do what Adam did and run the wires directly to the tubes. I think if I could do this in a fairly clean manner it would look pretty cool and go with the whole mechanical/exposed look I want.</p>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+		&nbsp;
+	</div>
+</div>
+
+<div id="footer" class="row">
+	<div class="twelve columns">
+		<center>
+			<span style="font-size: small;">
+				[ theme created by <a href="http://github.com/esell" class="copyright-link" target="#">esell</a> ]
+			</span>
+		</center>
+	</div>
+</div>
+</div>
+
+</body>
+</html>
+
+

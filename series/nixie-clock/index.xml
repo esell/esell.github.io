@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/post/</link>
-    <description>Recent content in Posts on es Heavy Industries</description>
+    <title>Nixie Clock on es Heavy Industries</title>
+    <link>http://esheavyindustries.com/series/nixie-clock/</link>
+    <description>Recent content in Nixie Clock on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 19 Mar 2016 19:16:20 -0600</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://esheavyindustries.com/series/nixie-clock/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>nixie clock part 1</title>
@@ -59,48 +59,6 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
 &lt;p&gt;Another option would be to use &lt;a href=&#34;http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;amp;cPath=4_11&amp;amp;products_id=74&#34;&gt;these&lt;/a&gt; pre-built &amp;ldquo;sockets&amp;rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&amp;rsquo;m not sure how much they would get me.&lt;/p&gt;
 
 &lt;p&gt;The third option is do just do what Adam did and run the wires directly to the tubes. I think if I could do this in a fairly clean manner it would look pretty cool and go with the whole mechanical/exposed look I want.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Have some extra cash? Help make your life easier</title>
-      <link>http://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</link>
-      <pubDate>Sat, 13 Feb 2016 13:02:40 -0700</pubDate>
-      
-      <guid>http://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</guid>
-      <description>&lt;p&gt;If you have some extra cash maybe you would consider donating some of it to one of the various open source projects that you likely use almost every single day? I know it is easy to forgot about where many of the things we use on a daily basis come from, but odds are that if you are reading this you probably use some kind of open source app.
-Where would you be without &lt;a href=&#34;http://www.openbsd.org/donations.html&#34;&gt;OpenSSH&lt;/a&gt; to securely connect to your servers?
-I know I&amp;rsquo;d personally be fucked without &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt; doing the load balancing for many of the apps I&amp;rsquo;ve supported.
-What about &lt;a href=&#34;http://www.apache.org/foundation/contributing.html&#34;&gt;Apache&lt;/a&gt;? Sure it might not be the hot tech now but how many of you have used it as your HTTP server both at work or for your personal site?&lt;/p&gt;
-
-&lt;p&gt;I could go on and on but the point I&amp;rsquo;m trying to make is that there are many (many!) tools that we use on a daily basis that someone (or a group of someones) are building, fixing and maintaining that make our lives easier.
-Some of these have big corporate sponsors but many of them do not.
-A lot of these people have other jobs they use to pay the bills and then work on their open source projects during their &amp;ldquo;off&amp;rdquo; time.
-Some groups build products, others focus on your rights (take the &lt;a href=&#34;https://supporters.eff.org/donate/button&#34;&gt;EFF&lt;/a&gt; for example). Others, like the &lt;a href=&#34;https://www.torproject.org/donate/donate.html.en&#34;&gt;Tor&lt;/a&gt; project, do both.&lt;/p&gt;
-
-&lt;p&gt;I encourage you to make a list of some of the open source tools you use on a daily basis and consider donating either money or time to those projects.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>deb-simple, a no frills apt repository server</title>
-      <link>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
-      <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
-      
-      <guid>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
-      <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Supported multiple versions of the same package&lt;/li&gt;
-&lt;li&gt;Didn&amp;rsquo;t care about signing or &amp;ldquo;changes&amp;rdquo; files&lt;/li&gt;
-&lt;li&gt;Allowed us to upload via an API or some type of incoming directory&lt;/li&gt;
-&lt;li&gt;Could handle multiple packages coming in at once without corrupting the repo&lt;/li&gt;
-&lt;li&gt;Was easy to setup/maintain&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&amp;rsquo;t become corrupted.&lt;/p&gt;
 </description>
     </item>
     
