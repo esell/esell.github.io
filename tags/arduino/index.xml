@@ -6,8 +6,31 @@
     <description>Recent content in Arduino on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Mar 2016 19:16:20 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 24 Mar 2016 21:10:30 -0600</lastBuildDate>
     <atom:link href="http://esheavyindustries.com/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>nixie clock pt1-a</title>
+      <link>http://esheavyindustries.com/2016/03/nixie-clock-pt1-a/</link>
+      <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
+      
+      <guid>http://esheavyindustries.com/2016/03/nixie-clock-pt1-a/</guid>
+      <description>
+
+&lt;h1 id=&#34;nixie-clock-part-1-a:b42922deece4681a9be1119f7f897cb6&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
+
+&lt;p&gt;So things have changed. I&amp;rsquo;ve taken out the Arudino and replaced it with an &lt;a href=&#34;https://www.adafruit.com/products/2000&#34;&gt;Adafruit Pro Trinket&lt;/a&gt;. Additionally I updated the PCB so show the &lt;a href=&#34;https://www.adafruit.com/products/1588&#34;&gt;Adafruit Bluefruit&lt;/a&gt; and took out the homebrew RTC circuit and just went with the &lt;a href=&#34;https://www.adafruit.com/products/3013&#34;&gt;Adafruit DS3231 breakout&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb2.png&#34; alt=&#34;nixie PCB&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;still looks like shit&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The reason for these changes was mainly just for simplicity. The new parts are easier to source, come from a vendor who I know makes really good/cool stuff and it makes my life a bit easier. Now I&amp;rsquo;m off to eBay to start the search for nixie tubes!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>nixie clock part 1</title>
