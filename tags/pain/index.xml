@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Electronics on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/tags/electronics/</link>
-    <description>Recent content in Electronics on es Heavy Industries</description>
+    <title>Pain on es Heavy Industries</title>
+    <link>http://esheavyindustries.com/tags/pain/</link>
+    <description>Recent content in Pain on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 22 Apr 2016 21:10:30 -0600</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://esheavyindustries.com/tags/pain/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hand Wired Keyboard pt1</title>
@@ -97,82 +97,6 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 &lt;/center&gt;&lt;/p&gt;
 
 &lt;p&gt;This is where I&amp;rsquo;m at currently but the project is not complete. The idea of having to use a wired keyboard in 2016 makes me sad so the next phase will be to hook in a bluetooth + battery setup so I can use this POS without an ugly USB cable attached to it. For now though I&amp;rsquo;m going to take some time to recover.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>nixie clock part 1-a</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
-      <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
-      
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
-      <description>
-
-&lt;h1 id=&#34;nixie-clock-part-1-a:b42922deece4681a9be1119f7f897cb6&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
-
-&lt;p&gt;So things have changed. I&amp;rsquo;ve taken out the Arudino and replaced it with an &lt;a href=&#34;https://www.adafruit.com/products/2000&#34;&gt;Adafruit Pro Trinket&lt;/a&gt;. Additionally I updated the PCB so show the &lt;a href=&#34;https://www.adafruit.com/products/1588&#34;&gt;Adafruit Bluefruit&lt;/a&gt; and took out the homebrew RTC circuit and just went with the &lt;a href=&#34;https://www.adafruit.com/products/3013&#34;&gt;Adafruit DS3231 breakout&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb2.png&#34; alt=&#34;nixie PCB&#34;&gt;
-  &lt;figcaption&gt;&lt;b&gt;still looks like shit&lt;/b&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;p&gt;The reason for these changes was mainly just for simplicity. The new parts are easier to source, come from a vendor who I know makes really good/cool stuff and it makes my life a bit easier. Now I&amp;rsquo;m off to eBay to start the search for nixie tubes!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>nixie clock part 1</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
-      <pubDate>Sat, 19 Mar 2016 19:16:20 -0600</pubDate>
-      
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
-      <description>
-
-&lt;h1 id=&#34;nixie-clock-part-1:f1fc92a632fd8952c6aa59df89efca94&#34;&gt;Nixie clock part 1&lt;/h1&gt;
-
-&lt;p&gt;I enjoy building things and for some reason, I tend to enjoy building more &amp;ldquo;classic&amp;rdquo; things. Awhile back I came across the &lt;a href=&#34;https://www.adafruit.com/products/194&#34;&gt;Adafruit Ice Tube Clock Kit&lt;/a&gt; which I thought was one amazing looking clock. Unfortunately they discontinued it but since I enjoy making things harder on myself than they should be, I went to Google to try and find something similar. What I came across was a pretty popular project called a nixie clock.&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixie1.jpg&#34; alt=&#34;example nixie clock&#34;&gt;
-  &lt;figcaption&gt;&lt;b&gt;example of a nixie clock&lt;/b&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;p&gt;A nixie clock is simply a clock that is built using multiple &lt;a href=&#34;https://en.wikipedia.org/wiki/Nixie_tube&#34;&gt;nixie tubes&lt;/a&gt; for the display. They come in all sorts of different sizes and shapes which makes it easy to design a clock for whatever purpose you want (small desk clock, larger wall clock, etc). In my case I wanted something similar to the Adafruit clock, small enough that I could put it on a desk but still big enough to show off some of the components. I like the mechanical look so I had planned on putting everything in some type of clear case so you could see all of the electronics.&lt;/p&gt;
-
-&lt;h2 id=&#34;research:f1fc92a632fd8952c6aa59df89efca94&#34;&gt;Research&lt;/h2&gt;
-
-&lt;p&gt;I am not an electronics guy at all, I can take a bag of parts with a schematic or instructions and solder it all together, but if you are looking at me to design a circuit from the ground up then you are in for a world of hurt.
-Luckily there are a bunch of smart people out there that have built nixie clocks before and have been kind enough to share. One of those people is Andrew Saxén who has not only a great write-up on how he built his nixie clock, but also links to the code that runs it as well as the PCB layout. You can check it out at his site &lt;a href=&#34;http://codeterrific.com/arduino/nixie-clock-build&#34;&gt;Code Terrific&lt;/a&gt;. There are tons of other links out there showing various builds, but for whatever reason Adam&amp;rsquo;s just seemed to click with me so I decided I was going to use what he had already done as my &amp;ldquo;base&amp;rdquo;.&lt;/p&gt;
-
-&lt;h2 id=&#34;chop-chop:f1fc92a632fd8952c6aa59df89efca94&#34;&gt;chop chop&lt;/h2&gt;
-
-&lt;p&gt;For my project all I wanted was a clock, I didn&amp;rsquo;t really care about temp or humidity so there wouldn&amp;rsquo;t be a need to include a DHT22 sensor in the build. Additionally, as of right now I plan on having the PCB printed as opposed to etching one at home. This means I&amp;rsquo;ll be able to take advantage of using a two sided PCB. The third change from Adam&amp;rsquo;s original design I&amp;rsquo;d like to make is to directly integrate his real-time clock circuit into the nixie PCB, that way everything is all in one spot.&lt;/p&gt;
-
-&lt;p&gt;With all of that I downloaded the &lt;a href=&#34;http://fritzing.org/home/&#34;&gt;Fritzing&lt;/a&gt; application and set out to re-create Adam&amp;rsquo;s PCB as best I could. Once I had that I started to strip away things I didn&amp;rsquo;t think I&amp;rsquo;d need, add some new things and then try and condense it down as much as possible to save on costs. Part of me wanted to make a really nice looking PCB but for my first attempt the cost would have been a bit more than I wanted to spend. I&amp;rsquo;m thinking if this turns out ok I can always re-use the nixie tubes and create a new, fancier PCB later.&lt;/p&gt;
-
-&lt;p&gt;&lt;center&gt;
-&lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb.jpg&#34; alt=&#34;nixie PCB&#34;&gt;
-  &lt;figcaption&gt;&lt;b&gt;holy rats nest!&lt;/b&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/center&gt;&lt;/p&gt;
-
-&lt;p&gt;If your skills are at hobbyist electronics person or above I apologize for the mess that is the PCB above :)&lt;/p&gt;
-
-&lt;p&gt;With this design it would be about ~$58 for three boards from &lt;a href=&#34;https://oshpark.com&#34;&gt;OSH Park&lt;/a&gt; which isn&amp;rsquo;t that bad for me. With a small child around and a full-time job the ability for me to find time to hand etch these is highly unlikely so it makes more sense to just bite the bullet and have someone else print them.&lt;/p&gt;
-
-&lt;h2 id=&#34;next-steps:f1fc92a632fd8952c6aa59df89efca94&#34;&gt;Next steps&lt;/h2&gt;
-
-&lt;p&gt;The base PCB isn&amp;rsquo;t finalized but I think it&amp;rsquo;s close enough for now. The next thing that I have been thinking about is how to mount the tubes. Part of me would like to make an additional PCB and have the tubes slot right into that PCB and then connect it to the other PCB either via headers or a ribbon cable. The problem with that is since I&amp;rsquo;m pretty much useless, I currently don&amp;rsquo;t have the ability to design the libraries needed to mock out IN-8 tubes and I haven&amp;rsquo;t been able to find any existing resources. Everyone seems to have the IN-12A but I just don&amp;rsquo;t like the look of those as much.&lt;/p&gt;
-
-&lt;p&gt;Another option would be to use &lt;a href=&#34;http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;amp;cPath=4_11&amp;amp;products_id=74&#34;&gt;these&lt;/a&gt; pre-built &amp;ldquo;sockets&amp;rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&amp;rsquo;m not sure how much they would get me.&lt;/p&gt;
-
-&lt;p&gt;The third option is do just do what Adam did and run the wires directly to the tubes. I think if I could do this in a fairly clean manner it would look pretty cool and go with the whole mechanical/exposed look I want.&lt;/p&gt;
 </description>
     </item>
     

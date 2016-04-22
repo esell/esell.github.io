@@ -6,15 +6,106 @@
     <description>Recent content in Posts on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2016 21:10:30 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 22 Apr 2016 21:10:30 -0600</lastBuildDate>
     <atom:link href="http://esheavyindustries.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>nixie clock pt1-a</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-pt1-a/</link>
+      <title>Hand Wired Keyboard pt1</title>
+      <link>http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
+      <pubDate>Fri, 22 Apr 2016 21:10:30 -0600</pubDate>
+      
+      <guid>http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
+      <description>
+
+&lt;h1 id=&#34;hand-wired-keyboard-part-1:8c3556715b3b28b429a09ea8fe198deb&#34;&gt;Hand Wired Keyboard Part 1&lt;/h1&gt;
+
+&lt;p&gt;I had been toying with the idea of buying a mechanical keyboard for a few years but the bug didn&amp;rsquo;t really hit until about 8 months ago. Me being me I thought &amp;ldquo;why just buy one
+when I could build it myself?!&amp;ldquo;. It turns out that putting your own mechanical keyboard together is kind of a pain in the ass, that&amp;rsquo;s why.&lt;/p&gt;
+
+&lt;p&gt;Ok, so I&amp;rsquo;m going to build a keyboard, time to actually research what it takes to build a keyboard. As with most things, the keyboard community has it&amp;rsquo;s own terms, language and acronyms so I spent
+the majority of the first month trying to figure out what the hell they were talking about and mapping their lingo to the actual parts I would need. At this point I thought I had a pretty good idea
+on what I needed so I went out to source probably the most important part of a keyboard: the switches. These are what your key caps go onto and what actually send the computer a signal that something
+has happened.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/keyboard1.jpg&#34; alt=&#34;cherry switch&#34;&gt;
+    &lt;figcaption&gt;&lt;b&gt;made of baby parts&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Turns out there are about 500 fucking kinds of switches out there and they all do different things just a tiny bit differently. Some are &amp;ldquo;linear&amp;rdquo;, some are &amp;ldquo;tactile bump&amp;rdquo; and some can even be &amp;ldquo;tactile click&amp;rdquo;. That is just a small sampling and those are the major categories, under those are tons of other categories that ends up creating this insane matrix of keyboard switches.
+I knew I wanted something that wasn&amp;rsquo;t super &amp;ldquo;clicky&amp;rdquo; because that is annoying so I was told to check out the &amp;ldquo;cherry mx brown&amp;rdquo; switch. This should have been the first sign of what I was getting into. Go out to Google/Amazon/eBay and try to find 60-80 cherry mx brown switches, I&amp;rsquo;ll wait. Turns out these things (as well as other cherry mx switches) are in such high demand that they are hardly ever available. When they do pop up they sell out super quick unless it happens to match-up with one of their big shipments that I guess only happen a couple times a year. Anyways, I was coming up empty handed
+everywhere I looked so I had to go the message board group-buy route. Luckily the group-buy was legit and I ended up with all the switches I needed.&lt;/p&gt;
+
+&lt;p&gt;Ah, so now I needed something to put those switches into aka the &amp;ldquo;plate&amp;rdquo;. I knew I wanted a ~65% style keyboard which is basically a typical keyboard stripped of all the non-essential stuff (for me). Things like function keys, media keys, etc.
+I came across a few sites (&lt;a href=&#34;http://builder.swillkb.com/&#34;&gt;plate &amp;amp; case builder&lt;/a&gt; and &lt;a href=&#34;http://www.keyboard-layout-editor.com/&#34;&gt;keyboard layout editor&lt;/a&gt;) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
+So I created my layout, created my CAD files for the plates (top and bottom) and headed over to &lt;a href=&#34;http://www.bigbluesaw.com/&#34;&gt;big blue saw&lt;/a&gt; to get my quote. For one set of plates it was going to cost me ~$90!! Now I&amp;rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&amp;rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&amp;rsquo;t going to be able to find that many people who wanted to make their own keyboard.&lt;/p&gt;
+
+&lt;p&gt;By pure chance I came across someone online talking about their &amp;ldquo;neutrino&amp;rdquo; build. It was a 65% keyboard that was being sold by &lt;a href=&#34;http://olkb.com/&#34;&gt;Ortholinear Keyboards&lt;/a&gt; and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&amp;rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&amp;rsquo;t ship for over four months. At this point I&amp;rsquo;m starting to realize that things in the mechanical keyboard game don&amp;rsquo;t come easy.&lt;/p&gt;
+
+&lt;p&gt;When the plates for the keyboard finally arrived I grabbed all the other parts I had ordered and went to town. Initially I had talked myself into believing that soldering all of these random diodes and wires wasn&amp;rsquo;t going to be an issue and that I&amp;rsquo;d knock it out in no time. wrong. wrong. Through hole soldering will never (never!) prepare you for the pain that is soldering a hand wired keyboard. If you are reading this right now because you are thinking about doing this I HIGHLY suggest you either make your own PCB or buy a kit that comes with one.&lt;/p&gt;
+
+&lt;p&gt;I stupidly sat down at my table, spread everything out in front of me and assumed in an hour I&amp;rsquo;d have a keyboard ready to go.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/parts.jpg&#34; alt=&#34;keyboard parts&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;what you need for a keyboard&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The suggested process is to put all of your switches in and then start wiring up the rows (which includes the diodes) and then the columns so that&amp;rsquo;s exactly what I did.
+It quickly became evident that there is no easy way to solder the diodes onto the switch and then to the other diode across from it. I tried about five different techniques and none of them really made it easy. Having a few drinks however did make me less angry so that is my suggestion if you plan on doing this: alcohol + hours of spare time.
+Between trying various ways to make it easier, throwing things and actual soldering it took me about 30 minutes to do the first row. If you&amp;rsquo;re keeping track you&amp;rsquo;ll realize that based on my initial time calculations that left me with 30 minutes to solder four more rows. I decided to just shut it down and work on the other rows later which in hindsight was probably the right call.
+The next day I was able to come back knowing what type of pain I was in for and just power through it. The result:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/rows.jpg&#34; alt=&#34;keyboard rows&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;never again&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Rows were done so that meant the columns were next. No diodes this time just straight up wire, no problem right? Nope. You don&amp;rsquo;t want the wiring to touch so that means you need to leave the shielding on the wiring you use for the columns. So to expose the wire I needed to solder I just used my pocket knife and stripped away small sections where I needed the bare wire exposed. That process took me way too long. The actual soldering was way easier than the rows though so I was able to cruise through that pretty quickly.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/rows_columns.jpg&#34; alt=&#34;keyboard rows and columns&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;are we there yet?&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Oh god I&amp;rsquo;m so close at this point&amp;rdquo; is all I could think when it came time to wire up the teensy. The teensy is basically the brains of the keyboard and connected to the various rows and columns I had created earlier. Routing the wires was kind of a pain but nothing crazy and overall this was probably the least stressful part of the build.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/teensy.jpg&#34; alt=&#34;keyboard with the teensy&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;so.damn.close.&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&amp;rsquo;s called &lt;a href=&#34;https://github.com/tmk/tmk_keyboard&#34;&gt;TMK&lt;/a&gt; and is actually pretty easy to use.
+Since all keyboards are going to be different, TMK has you pass in what your keyboard matrix looks like and then what you want each key to do when it&amp;rsquo;s pressed. TMK also has this concept of layers which is great for my 65% board as I can still have the functionality of say, media keys, I just need to use a specific key sequence to activate it. As an example I don&amp;rsquo;t have a &amp;ldquo;tilde&amp;rdquo; key by default so if I press fn + Esc I&amp;rsquo;ll get a tilde.
+Anyways, I got the firmware to compile and loaded it onto the teensy and it actually worked! Below is the final keyboard with a few keys that I&amp;rsquo;ll have to swap out as they are not the right size/type:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/kb-final.jpg&#34; alt=&#34;final keyboard&#34;&gt;
+  &lt;figcaption&gt;&lt;b&gt;tada!&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;This is where I&amp;rsquo;m at currently but the project is not complete. The idea of having to use a wired keyboard in 2016 makes me sad so the next phase will be to hook in a bluetooth + battery setup so I can use this POS without an ugly USB cable attached to it. For now though I&amp;rsquo;m going to take some time to recover.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nixie clock part 1-a</title>
+      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
       <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-pt1-a/</guid>
+      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1-a:b42922deece4681a9be1119f7f897cb6&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
