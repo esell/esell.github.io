@@ -6,8 +6,51 @@
     <description>Recent content in Pain on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Apr 2016 21:10:30 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 27 May 2016 21:10:30 -0600</lastBuildDate>
     <atom:link href="http://esheavyindustries.com/tags/pain/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hand Wired Keyboard pt2</title>
+      <link>http://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
+      <pubDate>Fri, 27 May 2016 21:10:30 -0600</pubDate>
+      
+      <guid>http://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
+      <description>
+
+&lt;h1 id=&#34;hand-wired-keyboard-part-2:52018684934fd9b6304b3e70662af65e&#34;&gt;Hand Wired Keyboard Part 2&lt;/h1&gt;
+
+&lt;p&gt;At the end of &lt;a href=&#34;http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/&#34;&gt;part 1&lt;/a&gt; I had a working keyboard but it had to be plugged in via USB. I haven&amp;rsquo;t used a wired keyboard in probably five years so having this
+one wired made me sad. There were a few hints at how people had done bluetooth + teensy setups (the teensy is the brains) but no real tutorials or anything. So as I typically do when presented with
+an electronics project, I headed over to &lt;a href=&#34;http://adafruit.com&#34;&gt;adafruit&lt;/a&gt; to see how much I could get already pre-built for me.&lt;/p&gt;
+
+&lt;p&gt;I already had the battery/charging stuff from a previous project so all I needed was something for the bluetooth. Guess what? They have a part for that: &lt;a href=&#34;https://www.adafruit.com/products/1535&#34;&gt;bluefruit EZ-Key&lt;/a&gt;. This little guy has the ability to take input in on it&amp;rsquo;s UART port and fire it off via bluetooth, perfect!&lt;/p&gt;
+
+&lt;p&gt;Now I had to figure out
+the wiring as I wanted to be able to charge the battery via the teensy USB port as opposed to using the USB port on the &lt;a href=&#34;https://www.adafruit.com/products/1904&#34;&gt;lipo charger board&lt;/a&gt;. There is a small trace on the teensy that you can cut
+to stop the USB port from actually providing power (&lt;a href=&#34;http://www.pjrc.com/teensy/external_power.html&#34;&gt;see here&lt;/a&gt;) which sounded like what I wanted so I had a few drinks to steady my hand, pulled out the xacto knife and made the cut.
+After that it was just a matter of getting the TX/RX from the teensy hooked up to the EZ-Key and then the power + charging coming from the lipo charger board to the teensy. Here is an amazing
+diagram I put together showing what I did:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+  &lt;img src=&#34;http://esheavyindustries.com/pics/kb-bluetooth.png&#34; alt=&#34;wiring diagram&#34; data-jslghtbx&gt;
+    &lt;figcaption&gt;&lt;b&gt;pro schematic&lt;/b&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The center 5v pad on the teensy is powered by the USB plug, so to charge the battery I just plug the keyboard up via USB to a power source and I&amp;rsquo;m good to go. What the awesome
+diagram doesn&amp;rsquo;t show is a small switch I added on the &amp;ldquo;power&amp;rdquo; wire between the charger board and teensy so that I can turn off the keyboard when I&amp;rsquo;m not using it.&lt;/p&gt;
+
+&lt;p&gt;This setup was functional and it worked correctly but because of the extra components (mainly the battery) the original spacers that came with the keyboard didn&amp;rsquo;t work. I tried about five different
+arrangements but every time I ended up pinching a diode or something causing the keyboard to do strange things on certain keys. The solution was to just order some taller spacers. This means that I
+will need to order a new middle piece cut from acrylic in order to hide all the guts but honestly I kind of like the exposed look.&lt;/p&gt;
+
+&lt;p&gt;With regards to the firmware, a few changes had to be made so I did my best to pretend to be a C programmer. The biggest change was renaming a bunch of macros that had at some point been renamed
+and never updated across the TMK code base, you can see the PR I submitted for that &lt;a href=&#34;https://github.com/tmk/tmk_keyboard/pull/341&#34;&gt;here&lt;/a&gt;. After that was done it was basically just a matter of
+copying the bluetooth converter sample project in TMK and updating it to fit my actual keyboard. You can see the changes I made &lt;a href=&#34;https://github.com/esell/tmk_keyboard/commits/neutrino&#34;&gt;here&lt;/a&gt;.
+Please keep in mind that the keymap being used is very basic and there is a lot of clean-up that could be done. This was simply just to verify everything was working as it should.:w&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Hand Wired Keyboard pt1</title>
