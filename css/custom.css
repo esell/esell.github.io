@@ -5,6 +5,30 @@
     display: none;
 }
 
+@font-face {
+    font-family: 'ibmvga';
+    src: 
+        local('IBM VGA'),
+        local('IBM-VGA'),
+        url('/fonts/Px437_IBM_VGA8.ttf') 
+        format('truetype');
+}
+
+.ansiheader pre {
+    -webkit-user-modify: read-write;
+    font-family: "ibmvga";
+    -webkit-line-break: after-white-space;
+    font-size: 12pt;
+    line-height: 1; 
+    white-space: pre;
+    margin-bottom: 1rem; 
+    overflow: hidden;
+}
+
+.ansiheader {
+    font-family: "ibmvga";
+    padding-bottom: 12pt;
+}
 
 /* light */
 .color-scheme-light {
