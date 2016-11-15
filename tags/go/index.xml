@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/tags/go/</link>
-    <description>Recent content in Go on es Heavy Industries</description>
+    <title>es Heavy Industries</title>
+    <link>https://esheavyindustries.com/tags/go/index.xml</link>
+    <description>Recent content on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Feb 2016 01:46:49 -0700</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esheavyindustries.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>deb-simple, a no frills apt repository server</title>
-      <link>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
+      <link>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
       <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
+      <guid>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
       <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
 
 &lt;ul&gt;

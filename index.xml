@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>es Heavy Industries</title>
-    <link>http://esheavyindustries.com/</link>
+    <link>https://esheavyindustries.com/index.xml</link>
     <description>Recent content on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 27 May 2016 21:10:30 -0600</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esheavyindustries.com/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hand Wired Keyboard pt2</title>
-      <link>http://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
+      <link>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
       <pubDate>Fri, 27 May 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
+      <guid>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
       <description>
 
 &lt;h1 id=&#34;hand-wired-keyboard-part-2&#34;&gt;Hand Wired Keyboard Part 2&lt;/h1&gt;
@@ -33,7 +33,7 @@ diagram I put together showing what I did:&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb-bluetooth.png&#34; alt=&#34;wiring diagram&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb-bluetooth.png&#34; alt=&#34;wiring diagram&#34; data-jslghtbx&gt;
     &lt;figcaption&gt;&lt;b&gt;pro schematic&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -54,10 +54,10 @@ Please keep in mind that the keymap being used is very basic and there is a lot 
     
     <item>
       <title>Hand Wired Keyboard pt1</title>
-      <link>http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
+      <link>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
       <pubDate>Fri, 22 Apr 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
+      <guid>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
       <description>
 
 &lt;h1 id=&#34;hand-wired-keyboard-part-1&#34;&gt;Hand Wired Keyboard Part 1&lt;/h1&gt;
@@ -72,7 +72,7 @@ has happened.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/keyboard1.jpg&#34; alt=&#34;cherry switch&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/keyboard1.jpg&#34; alt=&#34;cherry switch&#34; data-jslghtbx&gt;
     &lt;figcaption&gt;&lt;b&gt;made of baby parts&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -93,7 +93,7 @@ So I created my layout, created my CAD files for the plates (top and bottom) and
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/parts.jpg&#34; alt=&#34;keyboard parts&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/parts.jpg&#34; alt=&#34;keyboard parts&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;what you need for a keyboard&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -105,7 +105,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/rows.jpg&#34; alt=&#34;keyboard rows&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/rows.jpg&#34; alt=&#34;keyboard rows&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;never again&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -114,7 +114,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/rows_columns.jpg&#34; alt=&#34;keyboard rows and columns&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/rows_columns.jpg&#34; alt=&#34;keyboard rows and columns&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;are we there yet?&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -123,7 +123,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/teensy.jpg&#34; alt=&#34;keyboard with the teensy&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/teensy.jpg&#34; alt=&#34;keyboard with the teensy&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;so.damn.close.&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -134,7 +134,7 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/kb-final.jpg&#34; alt=&#34;final keyboard&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/kb-final.jpg&#34; alt=&#34;final keyboard&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;tada!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -145,10 +145,10 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
     
     <item>
       <title>nixie clock part 1-a</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
+      <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
       <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
+      <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1-a&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
@@ -157,7 +157,7 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb2.png&#34; alt=&#34;nixie PCB&#34;&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/nixieclock-small_pcb2.png&#34; alt=&#34;nixie PCB&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;still looks like shit&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -168,10 +168,10 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
     
     <item>
       <title>nixie clock part 1</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
+      <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
       <pubDate>Sat, 19 Mar 2016 19:16:20 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
+      <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1&#34;&gt;Nixie clock part 1&lt;/h1&gt;
@@ -180,7 +180,7 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixie1.jpg&#34; alt=&#34;example nixie clock&#34;&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/nixie1.jpg&#34; alt=&#34;example nixie clock&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;example of a nixie clock&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -200,7 +200,7 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb.jpg&#34; alt=&#34;nixie PCB&#34;&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/nixieclock-small_pcb.jpg&#34; alt=&#34;nixie PCB&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;holy rats nest!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -221,10 +221,10 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
     
     <item>
       <title>Have some extra cash? Help make your life easier</title>
-      <link>http://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</link>
+      <link>https://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</link>
       <pubDate>Sat, 13 Feb 2016 13:02:40 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</guid>
+      <guid>https://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</guid>
       <description>&lt;p&gt;If you have some extra cash maybe you would consider donating some of it to one of the various open source projects that you likely use almost every single day? I know it is easy to forgot about where many of the things we use on a daily basis come from, but odds are that if you are reading this you probably use some kind of open source app.
 Where would you be without &lt;a href=&#34;http://www.openbsd.org/donations.html&#34;&gt;OpenSSH&lt;/a&gt; to securely connect to your servers?
 I know I&amp;rsquo;d personally be fucked without &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt; doing the load balancing for many of the apps I&amp;rsquo;ve supported.
@@ -241,10 +241,10 @@ Some groups build products, others focus on your rights (take the &lt;a href=&#3
     
     <item>
       <title>deb-simple, a no frills apt repository server</title>
-      <link>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
+      <link>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
       <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
+      <guid>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
       <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -263,10 +263,10 @@ Some groups build products, others focus on your rights (take the &lt;a href=&#3
     
     <item>
       <title>Contact</title>
-      <link>http://esheavyindustries.com/contact/</link>
+      <link>https://esheavyindustries.com/contact/</link>
       <pubDate>Wed, 18 Mar 2015 23:06:53 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/contact/</guid>
+      <guid>https://esheavyindustries.com/contact/</guid>
       <description></description>
     </item>
     

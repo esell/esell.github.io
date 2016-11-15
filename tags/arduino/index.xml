@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Arduino on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/tags/arduino/</link>
-    <description>Recent content in Arduino on es Heavy Industries</description>
+    <title>es Heavy Industries</title>
+    <link>https://esheavyindustries.com/tags/arduino/index.xml</link>
+    <description>Recent content on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2016 21:10:30 -0600</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esheavyindustries.com/tags/arduino/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>nixie clock part 1-a</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
+      <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
       <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
+      <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1-a&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
@@ -23,7 +22,7 @@
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb2.png&#34; alt=&#34;nixie PCB&#34;&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/nixieclock-small_pcb2.png&#34; alt=&#34;nixie PCB&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;still looks like shit&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -34,10 +33,10 @@
     
     <item>
       <title>nixie clock part 1</title>
-      <link>http://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
+      <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
       <pubDate>Sat, 19 Mar 2016 19:16:20 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
+      <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1&#34;&gt;Nixie clock part 1&lt;/h1&gt;
@@ -46,7 +45,7 @@
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixie1.jpg&#34; alt=&#34;example nixie clock&#34;&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/nixie1.jpg&#34; alt=&#34;example nixie clock&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;example of a nixie clock&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -66,7 +65,7 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/nixieclock-small_pcb.jpg&#34; alt=&#34;nixie PCB&#34;&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/nixieclock-small_pcb.jpg&#34; alt=&#34;nixie PCB&#34;&gt;
   &lt;figcaption&gt;&lt;b&gt;holy rats nest!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;

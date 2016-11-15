@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pain on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/tags/pain/</link>
-    <description>Recent content in Pain on es Heavy Industries</description>
+    <title>es Heavy Industries</title>
+    <link>https://esheavyindustries.com/tags/pain/index.xml</link>
+    <description>Recent content on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 May 2016 21:10:30 -0600</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/tags/pain/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esheavyindustries.com/tags/pain/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hand Wired Keyboard pt2</title>
-      <link>http://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
+      <link>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
       <pubDate>Fri, 27 May 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
+      <guid>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
       <description>
 
 &lt;h1 id=&#34;hand-wired-keyboard-part-2&#34;&gt;Hand Wired Keyboard Part 2&lt;/h1&gt;
@@ -33,7 +32,7 @@ diagram I put together showing what I did:&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb-bluetooth.png&#34; alt=&#34;wiring diagram&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb-bluetooth.png&#34; alt=&#34;wiring diagram&#34; data-jslghtbx&gt;
     &lt;figcaption&gt;&lt;b&gt;pro schematic&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -54,10 +53,10 @@ Please keep in mind that the keymap being used is very basic and there is a lot 
     
     <item>
       <title>Hand Wired Keyboard pt1</title>
-      <link>http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
+      <link>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
       <pubDate>Fri, 22 Apr 2016 21:10:30 -0600</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
+      <guid>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
       <description>
 
 &lt;h1 id=&#34;hand-wired-keyboard-part-1&#34;&gt;Hand Wired Keyboard Part 1&lt;/h1&gt;
@@ -72,7 +71,7 @@ has happened.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/keyboard1.jpg&#34; alt=&#34;cherry switch&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/keyboard1.jpg&#34; alt=&#34;cherry switch&#34; data-jslghtbx&gt;
     &lt;figcaption&gt;&lt;b&gt;made of baby parts&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -93,7 +92,7 @@ So I created my layout, created my CAD files for the plates (top and bottom) and
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/parts.jpg&#34; alt=&#34;keyboard parts&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/parts.jpg&#34; alt=&#34;keyboard parts&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;what you need for a keyboard&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -105,7 +104,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/rows.jpg&#34; alt=&#34;keyboard rows&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/rows.jpg&#34; alt=&#34;keyboard rows&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;never again&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -114,7 +113,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/rows_columns.jpg&#34; alt=&#34;keyboard rows and columns&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/rows_columns.jpg&#34; alt=&#34;keyboard rows and columns&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;are we there yet?&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -123,7 +122,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/teensy.jpg&#34; alt=&#34;keyboard with the teensy&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/teensy.jpg&#34; alt=&#34;keyboard with the teensy&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;so.damn.close.&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
@@ -134,7 +133,7 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
-  &lt;img src=&#34;http://esheavyindustries.com/pics/kb/kb-final.jpg&#34; alt=&#34;final keyboard&#34; data-jslghtbx&gt;
+  &lt;img src=&#34;https://esheavyindustries.com/pics/kb/kb-final.jpg&#34; alt=&#34;final keyboard&#34; data-jslghtbx&gt;
   &lt;figcaption&gt;&lt;b&gt;tada!&lt;/b&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Open Source on es Heavy Industries</title>
-    <link>http://esheavyindustries.com/tags/open-source/</link>
-    <description>Recent content in Open Source on es Heavy Industries</description>
+    <title>es Heavy Industries</title>
+    <link>https://esheavyindustries.com/tags/open-source/index.xml</link>
+    <description>Recent content on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Feb 2016 13:02:40 -0700</lastBuildDate>
-    <atom:link href="http://esheavyindustries.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esheavyindustries.com/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Have some extra cash? Help make your life easier</title>
-      <link>http://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</link>
+      <link>https://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</link>
       <pubDate>Sat, 13 Feb 2016 13:02:40 -0700</pubDate>
       
-      <guid>http://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</guid>
+      <guid>https://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</guid>
       <description>&lt;p&gt;If you have some extra cash maybe you would consider donating some of it to one of the various open source projects that you likely use almost every single day? I know it is easy to forgot about where many of the things we use on a daily basis come from, but odds are that if you are reading this you probably use some kind of open source app.
 Where would you be without &lt;a href=&#34;http://www.openbsd.org/donations.html&#34;&gt;OpenSSH&lt;/a&gt; to securely connect to your servers?
 I know I&amp;rsquo;d personally be fucked without &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt; doing the load balancing for many of the apps I&amp;rsquo;ve supported.
