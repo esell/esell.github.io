@@ -2,11 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://esheavyindustries.com/</loc>
-    <lastmod>2017-01-13T21:10:30-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://esheavyindustries.com/2017/01/i-owe-my-career-to-being-a-script-kiddie/</loc>
     <lastmod>2017-01-13T21:10:30-06:00</lastmod>
   </url>
@@ -44,6 +39,88 @@
   <url>
     <loc>https://esheavyindustries.com/contact/</loc>
     <lastmod>2015-03-18T23:06:53-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/arduino/</loc>
+    <lastmod>2016-03-24T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/dev/</loc>
+    <lastmod>2016-02-03T01:46:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/electronics/</loc>
+    <lastmod>2016-05-27T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/go/</loc>
+    <lastmod>2016-02-03T01:46:49-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/series/hand-wired-keyboard/</loc>
+    <lastmod>2016-05-27T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/keyboard/</loc>
+    <lastmod>2016-05-27T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/life/</loc>
+    <lastmod>2017-01-13T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/series/nixie-clock/</loc>
+    <lastmod>2016-03-24T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/open-source/</loc>
+    <lastmod>2016-02-13T13:02:40-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/pain/</loc>
+    <lastmod>2016-05-27T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/post/</loc>
+    <lastmod>2017-01-13T21:10:30-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/series/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://esheavyindustries.com/</loc>
+    <lastmod>2017-01-13T21:10:30-06:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>
