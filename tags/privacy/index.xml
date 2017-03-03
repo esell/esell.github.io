@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dev on es Heavy Industries</title>
-    <link>https://esheavyindustries.com/tags/dev/index.xml</link>
-    <description>Recent content in Dev on es Heavy Industries</description>
+    <title>Privacy on es Heavy Industries</title>
+    <link>https://esheavyindustries.com/tags/privacy/index.xml</link>
+    <description>Recent content in Privacy on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://esheavyindustries.com/tags/dev/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://esheavyindustries.com/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>My Adventures in Self-hosting</title>
@@ -64,28 +64,6 @@ so I&amp;rsquo;ll keep searching.&lt;/p&gt;
 
 &lt;p&gt;I still have a bit left to do like moving all of my Github repos over to my Gitea setup but so far I&amp;rsquo;ve been enjoying the new freedom. Since most of these apps are pretty low
 maintenance I don&amp;rsquo;t really have to do much sysadmin type work which is great. If that will still be the same six months from now I&amp;rsquo;ll just have to wait and see.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>deb-simple, a no frills apt repository server</title>
-      <link>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
-      <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
-      
-      <guid>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
-      <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Supported multiple versions of the same package&lt;/li&gt;
-&lt;li&gt;Didn&amp;rsquo;t care about signing or &amp;ldquo;changes&amp;rdquo; files&lt;/li&gt;
-&lt;li&gt;Allowed us to upload via an API or some type of incoming directory&lt;/li&gt;
-&lt;li&gt;Could handle multiple packages coming in at once without corrupting the repo&lt;/li&gt;
-&lt;li&gt;Was easy to setup/maintain&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&amp;rsquo;t become corrupted.&lt;/p&gt;
 </description>
     </item>
     
