@@ -6,13 +6,16 @@
     <description>Recent content in Dev on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>esell@esheavyindustries.com (esells)</managingEditor>
+    <webMaster>esell@esheavyindustries.com (esells)</webMaster>
+    <copyright>who knows?</copyright>
     <atom:link href="https://esheavyindustries.com/tags/dev/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>My Adventures in Self-hosting</title>
       <link>https://esheavyindustries.com/2017/03/my-adventures-in-self-hosting/</link>
       <pubDate>Fri, 03 Mar 2017 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2017/03/my-adventures-in-self-hosting/</guid>
       <description>&lt;p&gt;Some people&amp;rsquo;s new years resolution was to lose weight, others was to give themselves more &amp;ldquo;me&amp;rdquo; time. Mine was to move off of as much SaaS offerings as I could in an attempt
 to start taking back my privacy.&lt;/p&gt;
@@ -25,37 +28,37 @@ I had already closed down my social media accounts, which were probably the ones
 &lt;p&gt;First on my list was this site. I had been thinking of moving it for some time as hosting it on Github pages didn&amp;rsquo;t allow me to use SSL unless I used something like Cloudflare which I didn&amp;rsquo;t want
 to do. Most of the big cloud providers have some type of blob storage that works great for static sites, but again, at the time none of them had what I would call acceptable
 SSL support. The solution I ended up going with was a small VM with one of the large cloud providers and setup disk encryption (with my key) to make sure it really was &amp;ldquo;mine&amp;rdquo;.
-Now I needed a web server. I had been an Apache guy most of my life but that felt too heavy for what I wanted. I had heard of &lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy&lt;/a&gt; and after reading the
-docs it sounded like a perfect fit. It was easy to setup, has support for &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt; out of the box and also has a nifty git plugin that pulls in my static
+Now I needed a web server. I had been an Apache guy most of my life but that felt too heavy for what I wanted. I had heard of &lt;a href=&#34;https://caddyserver.com/&#34; target=&#34;_blank&#34;&gt;Caddy&lt;/a&gt; and after reading the
+docs it sounded like a perfect fit. It was easy to setup, has support for &lt;a href=&#34;https://letsencrypt.org/&#34; target=&#34;_blank&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt; out of the box and also has a nifty git plugin that pulls in my static
 site from my git repo whenever the content has changed. It took me about 5 minutes to get things up and running at which point I had one item off of my checklist. Caddy is awesome and as you&amp;rsquo;ll see later,
 it ended up being the hub of most of my solutions.&lt;/p&gt;
 
 &lt;p&gt;The next item was how to get off of Github and the random services I had connected into it like TravisCI and Coveralls. The part I struggled with here was the social aspect of it. Not so much stars, watchers, etc but more of the PR and issue management system. Granted I don&amp;rsquo;t have any high-profile repos but at the same time I didn&amp;rsquo;t want to put up a barrier to prevent people from submitting
-something. Asking someone to create a user/pass just for my shitty git repo wasn&amp;rsquo;t an option. As luck would have it, &lt;a href=&#34;https://gitea.io/en-US/&#34;&gt;Gitea&lt;/a&gt;, which is a fork of &lt;a href=&#34;https://gogs.io/&#34;&gt;Gogs&lt;/a&gt; had just sprung up. Gitea has been much more active with regards to commits and one of those commits just happened to be supporting authentication via Github! I pulled down the source, got it all built
+something. Asking someone to create a user/pass just for my shitty git repo wasn&amp;rsquo;t an option. As luck would have it, &lt;a href=&#34;https://gitea.io/en-US/&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt;, which is a fork of &lt;a href=&#34;https://gogs.io/&#34; target=&#34;_blank&#34;&gt;Gogs&lt;/a&gt; had just sprung up. Gitea has been much more active with regards to commits and one of those commits just happened to be supporting authentication via Github! I pulled down the source, got it all built
 and dropped it behind my Caddy server, again with it&amp;rsquo;s own fancy Let&amp;rsquo;s Encrypt cert. Is Gitea a bit rough around the edges? Sure, but it covers everything I need and is fairly lightweight,
 easy to setup/maintain and can use sqlite as a backend so I didn&amp;rsquo;t have to manage a database server.&lt;/p&gt;
 
 &lt;p&gt;So I had a solution to my git repo hosting, now what about replacing TravisCI and Coveralls? I&amp;rsquo;m glad you asked! This part of my self-hosting process ended up being a bit more work than I expected.
-To replace TravisCI I went with self-hosted &lt;a href=&#34;https://github.com/drone/drone&#34;&gt;Drone&lt;/a&gt;. Drone was pretty easy to get going since it comes as a Docker image so once I had it fired up I simply
+To replace TravisCI I went with self-hosted &lt;a href=&#34;https://github.com/drone/drone&#34; target=&#34;_blank&#34;&gt;Drone&lt;/a&gt;. Drone was pretty easy to get going since it comes as a Docker image so once I had it fired up I simply
 logged in and enabled it for the repos I wanted. The &lt;code&gt;.drone.yml&lt;/code&gt; file took a bit of work to get working with the native go vendoring system but I eventually got it working. Coveralls was next up on
-the list and surprisingly I didn&amp;rsquo;t find very many open source options. I ended up hacking together &lt;a href=&#34;https://git.esheavyindustries.com/esell/hoptocopter&#34;&gt;hoptocopter&lt;/a&gt; which actually
-just uses the native go test coverage tooling and then spits out one of those fancy badges via &lt;a href=&#34;http://shields.io/&#34;&gt;shields&lt;/a&gt;. To avoid having to call their API I used the wonderful
-&lt;a href=&#34;https://github.com/beevelop/docker-shields&#34;&gt;shields docker image&lt;/a&gt; provided by beevelop. From there I just setup a Docker compose file that started up hoptocopter and shields together and bam!
+the list and surprisingly I didn&amp;rsquo;t find very many open source options. I ended up hacking together &lt;a href=&#34;https://git.esheavyindustries.com/esell/hoptocopter&#34; target=&#34;_blank&#34;&gt;hoptocopter&lt;/a&gt; which actually
+just uses the native go test coverage tooling and then spits out one of those fancy badges via &lt;a href=&#34;http://shields.io/&#34; target=&#34;_blank&#34;&gt;shields&lt;/a&gt;. To avoid having to call their API I used the wonderful
+&lt;a href=&#34;https://github.com/beevelop/docker-shields&#34; target=&#34;_blank&#34;&gt;shields docker image&lt;/a&gt; provided by beevelop. From there I just setup a Docker compose file that started up hoptocopter and shields together and bam!
 Instant code coverage badges. At this point I had basically re-created everything I had in Github. There were some things I couldn&amp;rsquo;t implement such as builds being triggered by PRs, but that wasn&amp;rsquo;t
 a huge deal to me so I considered it a success. Guess what I used to front these? If you said Caddy you&amp;rsquo;d be correct.&lt;/p&gt;
 
 &lt;p&gt;Previously this site had used Google Analytics for metrics. I actually like the product and enjoy seeing all of the cool data about my site but Google and privacy do not belong in the same
-sentence. My next goal was to rid myself of Google Analytics and find something I could run on my server but that still had an easy to use UI. Enter &lt;a href=&#34;https://www.goaccess.io/&#34;&gt;GoAccess&lt;/a&gt;.
+sentence. My next goal was to rid myself of Google Analytics and find something I could run on my server but that still had an easy to use UI. Enter &lt;a href=&#34;https://www.goaccess.io/&#34; target=&#34;_blank&#34;&gt;GoAccess&lt;/a&gt;.
 Really nothing to say about GoAccess outside of it just works. It parses the log files from Caddy and turns them into a pretty html page. This page is served up by&amp;hellip; Caddy.&lt;/p&gt;
 
 &lt;p&gt;Password management, a great debate topic. Do you use a fancy hosted tool like LastPass or do you use something you can store locally like KeePass? The answer for me was neither, I went with
-&lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;pass&lt;/a&gt; which is a super simple (good) way to manage your passwords but still be able to access them on most devices including my Android phone. I setup pass to
+&lt;a href=&#34;https://www.passwordstore.org/&#34; target=&#34;_blank&#34;&gt;pass&lt;/a&gt; which is a super simple (good) way to manage your passwords but still be able to access them on most devices including my Android phone. I setup pass to
 use git as a storage location by setting up a private repo on my new Gitea setup. I lost a tiny bit of functionality over something like LastPass, but nothing I couldn&amp;rsquo;t do without. If you
-wanted to be super crazy you could use something like &lt;a href=&#34;https://spwhitton.name/tech/code/git-remote-gcrypt/&#34;&gt;git-remote-gcrypt&lt;/a&gt; to encrypt your actual git repo. Double the encryption, double the fun.&lt;/p&gt;
+wanted to be super crazy you could use something like &lt;a href=&#34;https://spwhitton.name/tech/code/git-remote-gcrypt/&#34; target=&#34;_blank&#34;&gt;git-remote-gcrypt&lt;/a&gt; to encrypt your actual git repo. Double the encryption, double the fun.&lt;/p&gt;
 
 &lt;p&gt;Now I have to talk about the things I haven&amp;rsquo;t come up with a good solution for (yet). The biggest is e-mail. A few years ago I tried hosting my own mail server and did everything the internet
 says to do to avoid your e-mails being flagged as spam. Unfortunately that didn&amp;rsquo;t work and about 80% of my e-mails ended up in the spam folder of my friends and family. I am currently using
-&lt;a href=&#34;https://protonmail.com/&#34;&gt;Protonmail&lt;/a&gt; which is great and I have no real problems with, it&amp;rsquo;s just that I don&amp;rsquo;t have those messages on my own server so I have to trust that everything
+&lt;a href=&#34;https://protonmail.com/&#34; target=&#34;_blank&#34;&gt;Protonmail&lt;/a&gt; which is great and I have no real problems with, it&amp;rsquo;s just that I don&amp;rsquo;t have those messages on my own server so I have to trust that everything
 they say they do is actually true. That&amp;rsquo;s a fairly big thing to do but at this point I just have to suck it up and deal with it.
 The second area is image and video sharing. Things like Google Drive or Google Photos are great products but again, Google. I&amp;rsquo;ve been looking around for some open source alternatives
 and haven&amp;rsquo;t found anything yet that meets my needs. I want to be able to send photos right from my phone to the app on my server and then send out generated links to family members
@@ -71,7 +74,7 @@ maintenance I don&amp;rsquo;t really have to do much sysadmin type work which is
       <title>deb-simple, a no frills apt repository server</title>
       <link>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
       <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
       <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
 
@@ -83,7 +86,7 @@ maintenance I don&amp;rsquo;t really have to do much sysadmin type work which is
 &lt;li&gt;Was easy to setup/maintain&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34; target=&#34;_blank&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&amp;rsquo;t become corrupted.&lt;/p&gt;
 </description>

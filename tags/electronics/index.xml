@@ -6,27 +6,30 @@
     <description>Recent content in Electronics on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>esell@esheavyindustries.com (esells)</managingEditor>
+    <webMaster>esell@esheavyindustries.com (esells)</webMaster>
+    <copyright>who knows?</copyright>
     <atom:link href="https://esheavyindustries.com/tags/electronics/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hand Wired Keyboard pt2</title>
       <link>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
       <pubDate>Fri, 27 May 2016 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
       <description>
 
 &lt;h1 id=&#34;hand-wired-keyboard-part-2&#34;&gt;Hand Wired Keyboard Part 2&lt;/h1&gt;
 
-&lt;p&gt;At the end of &lt;a href=&#34;http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/&#34;&gt;part 1&lt;/a&gt; I had a working keyboard but it had to be plugged in via USB. I haven&amp;rsquo;t used a wired keyboard in probably five years so having this
+&lt;p&gt;At the end of &lt;a href=&#34;http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/&#34; target=&#34;_blank&#34;&gt;part 1&lt;/a&gt; I had a working keyboard but it had to be plugged in via USB. I haven&amp;rsquo;t used a wired keyboard in probably five years so having this
 one wired made me sad. There were a few hints at how people had done bluetooth + teensy setups (the teensy is the brains) but no real tutorials or anything. So as I typically do when presented with
-an electronics project, I headed over to &lt;a href=&#34;http://adafruit.com&#34;&gt;adafruit&lt;/a&gt; to see how much I could get already pre-built for me.&lt;/p&gt;
+an electronics project, I headed over to &lt;a href=&#34;http://adafruit.com&#34; target=&#34;_blank&#34;&gt;adafruit&lt;/a&gt; to see how much I could get already pre-built for me.&lt;/p&gt;
 
-&lt;p&gt;I already had the battery/charging stuff from a previous project so all I needed was something for the bluetooth. Guess what? They have a part for that: &lt;a href=&#34;https://www.adafruit.com/products/1535&#34;&gt;bluefruit EZ-Key&lt;/a&gt;. This little guy has the ability to take input in on it&amp;rsquo;s UART port and fire it off via bluetooth, perfect!&lt;/p&gt;
+&lt;p&gt;I already had the battery/charging stuff from a previous project so all I needed was something for the bluetooth. Guess what? They have a part for that: &lt;a href=&#34;https://www.adafruit.com/products/1535&#34; target=&#34;_blank&#34;&gt;bluefruit EZ-Key&lt;/a&gt;. This little guy has the ability to take input in on it&amp;rsquo;s UART port and fire it off via bluetooth, perfect!&lt;/p&gt;
 
 &lt;p&gt;Now I had to figure out
-the wiring as I wanted to be able to charge the battery via the teensy USB port as opposed to using the USB port on the &lt;a href=&#34;https://www.adafruit.com/products/1904&#34;&gt;lipo charger board&lt;/a&gt;. There is a small trace on the teensy that you can cut
-to stop the USB port from actually providing power (&lt;a href=&#34;http://www.pjrc.com/teensy/external_power.html&#34;&gt;see here&lt;/a&gt;) which sounded like what I wanted so I had a few drinks to steady my hand, pulled out the xacto knife and made the cut.
+the wiring as I wanted to be able to charge the battery via the teensy USB port as opposed to using the USB port on the &lt;a href=&#34;https://www.adafruit.com/products/1904&#34; target=&#34;_blank&#34;&gt;lipo charger board&lt;/a&gt;. There is a small trace on the teensy that you can cut
+to stop the USB port from actually providing power (&lt;a href=&#34;http://www.pjrc.com/teensy/external_power.html&#34; target=&#34;_blank&#34;&gt;see here&lt;/a&gt;) which sounded like what I wanted so I had a few drinks to steady my hand, pulled out the xacto knife and made the cut.
 After that it was just a matter of getting the TX/RX from the teensy hooked up to the EZ-Key and then the power + charging coming from the lipo charger board to the teensy. Here is an amazing
 diagram I put together showing what I did:&lt;/p&gt;
 
@@ -45,8 +48,8 @@ arrangements but every time I ended up pinching a diode or something causing the
 will need to order a new middle piece cut from acrylic in order to hide all the guts but honestly I kind of like the exposed look.&lt;/p&gt;
 
 &lt;p&gt;With regards to the firmware, a few changes had to be made so I did my best to pretend to be a C programmer. The biggest change was renaming a bunch of macros that had at some point been renamed
-and never updated across the TMK code base, you can see the PR I submitted for that &lt;a href=&#34;https://github.com/tmk/tmk_keyboard/pull/341&#34;&gt;here&lt;/a&gt;. After that was done it was basically just a matter of
-copying the bluetooth converter sample project in TMK and updating it to fit my actual keyboard. You can see the changes I made &lt;a href=&#34;https://github.com/esell/tmk_keyboard/commits/neutrino&#34;&gt;here&lt;/a&gt;.
+and never updated across the TMK code base, you can see the PR I submitted for that &lt;a href=&#34;https://github.com/tmk/tmk_keyboard/pull/341&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. After that was done it was basically just a matter of
+copying the bluetooth converter sample project in TMK and updating it to fit my actual keyboard. You can see the changes I made &lt;a href=&#34;https://github.com/esell/tmk_keyboard/commits/neutrino&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.
 Please keep in mind that the keymap being used is very basic and there is a lot of clean-up that could be done. This was simply just to verify everything was working as it should.:w&lt;/p&gt;
 </description>
     </item>
@@ -55,7 +58,7 @@ Please keep in mind that the keymap being used is very basic and there is a lot 
       <title>Hand Wired Keyboard pt1</title>
       <link>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
       <pubDate>Fri, 22 Apr 2016 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
       <description>
 
@@ -81,10 +84,10 @@ I knew I wanted something that wasn&amp;rsquo;t super &amp;ldquo;clicky&amp;rdqu
 everywhere I looked so I had to go the message board group-buy route. Luckily the group-buy was legit and I ended up with all the switches I needed.&lt;/p&gt;
 
 &lt;p&gt;Ah, so now I needed something to put those switches into aka the &amp;ldquo;plate&amp;rdquo;. I knew I wanted a ~65% style keyboard which is basically a typical keyboard stripped of all the non-essential stuff (for me). Things like function keys, media keys, etc.
-I came across a few sites (&lt;a href=&#34;http://builder.swillkb.com/&#34;&gt;plate &amp;amp; case builder&lt;/a&gt; and &lt;a href=&#34;http://www.keyboard-layout-editor.com/&#34;&gt;keyboard layout editor&lt;/a&gt;) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
-So I created my layout, created my CAD files for the plates (top and bottom) and headed over to &lt;a href=&#34;http://www.bigbluesaw.com/&#34;&gt;big blue saw&lt;/a&gt; to get my quote. For one set of plates it was going to cost me ~$90!! Now I&amp;rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&amp;rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&amp;rsquo;t going to be able to find that many people who wanted to make their own keyboard.&lt;/p&gt;
+I came across a few sites (&lt;a href=&#34;http://builder.swillkb.com/&#34; target=&#34;_blank&#34;&gt;plate &amp;amp; case builder&lt;/a&gt; and &lt;a href=&#34;http://www.keyboard-layout-editor.com/&#34; target=&#34;_blank&#34;&gt;keyboard layout editor&lt;/a&gt;) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
+So I created my layout, created my CAD files for the plates (top and bottom) and headed over to &lt;a href=&#34;http://www.bigbluesaw.com/&#34; target=&#34;_blank&#34;&gt;big blue saw&lt;/a&gt; to get my quote. For one set of plates it was going to cost me ~$90!! Now I&amp;rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&amp;rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&amp;rsquo;t going to be able to find that many people who wanted to make their own keyboard.&lt;/p&gt;
 
-&lt;p&gt;By pure chance I came across someone online talking about their &amp;ldquo;neutrino&amp;rdquo; build. It was a 65% keyboard that was being sold by &lt;a href=&#34;http://olkb.com/&#34;&gt;Ortholinear Keyboards&lt;/a&gt; and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&amp;rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&amp;rsquo;t ship for over four months. At this point I&amp;rsquo;m starting to realize that things in the mechanical keyboard game don&amp;rsquo;t come easy.&lt;/p&gt;
+&lt;p&gt;By pure chance I came across someone online talking about their &amp;ldquo;neutrino&amp;rdquo; build. It was a 65% keyboard that was being sold by &lt;a href=&#34;http://olkb.com/&#34; target=&#34;_blank&#34;&gt;Ortholinear Keyboards&lt;/a&gt; and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&amp;rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&amp;rsquo;t ship for over four months. At this point I&amp;rsquo;m starting to realize that things in the mechanical keyboard game don&amp;rsquo;t come easy.&lt;/p&gt;
 
 &lt;p&gt;When the plates for the keyboard finally arrived I grabbed all the other parts I had ordered and went to town. Initially I had talked myself into believing that soldering all of these random diodes and wires wasn&amp;rsquo;t going to be an issue and that I&amp;rsquo;d knock it out in no time. wrong. wrong. Through hole soldering will never (never!) prepare you for the pain that is soldering a hand wired keyboard. If you are reading this right now because you are thinking about doing this I HIGHLY suggest you either make your own PCB or buy a kit that comes with one.&lt;/p&gt;
 
@@ -127,7 +130,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&amp;rsquo;s called &lt;a href=&#34;https://github.com/tmk/tmk_keyboard&#34;&gt;TMK&lt;/a&gt; and is actually pretty easy to use.
+&lt;p&gt;At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&amp;rsquo;s called &lt;a href=&#34;https://github.com/tmk/tmk_keyboard&#34; target=&#34;_blank&#34;&gt;TMK&lt;/a&gt; and is actually pretty easy to use.
 Since all keyboards are going to be different, TMK has you pass in what your keyboard matrix looks like and then what you want each key to do when it&amp;rsquo;s pressed. TMK also has this concept of layers which is great for my 65% board as I can still have the functionality of say, media keys, I just need to use a specific key sequence to activate it. As an example I don&amp;rsquo;t have a &amp;ldquo;tilde&amp;rdquo; key by default so if I press fn + Esc I&amp;rsquo;ll get a tilde.
 Anyways, I got the firmware to compile and loaded it onto the teensy and it actually worked! Below is the final keyboard with a few keys that I&amp;rsquo;ll have to swap out as they are not the right size/type:&lt;/p&gt;
 
@@ -146,13 +149,13 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
       <title>nixie clock part 1-a</title>
       <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
       <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1-a&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
 
-&lt;p&gt;So things have changed. I&amp;rsquo;ve taken out the Arudino and replaced it with an &lt;a href=&#34;https://www.adafruit.com/products/2000&#34;&gt;Adafruit Pro Trinket&lt;/a&gt;. Additionally I updated the PCB so show the &lt;a href=&#34;https://www.adafruit.com/products/1588&#34;&gt;Adafruit Bluefruit&lt;/a&gt; and took out the homebrew RTC circuit and just went with the &lt;a href=&#34;https://www.adafruit.com/products/3013&#34;&gt;Adafruit DS3231 breakout&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So things have changed. I&amp;rsquo;ve taken out the Arudino and replaced it with an &lt;a href=&#34;https://www.adafruit.com/products/2000&#34; target=&#34;_blank&#34;&gt;Adafruit Pro Trinket&lt;/a&gt;. Additionally I updated the PCB so show the &lt;a href=&#34;https://www.adafruit.com/products/1588&#34; target=&#34;_blank&#34;&gt;Adafruit Bluefruit&lt;/a&gt; and took out the homebrew RTC circuit and just went with the &lt;a href=&#34;https://www.adafruit.com/products/3013&#34; target=&#34;_blank&#34;&gt;Adafruit DS3231 breakout&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
@@ -169,13 +172,13 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
       <title>nixie clock part 1</title>
       <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
       <pubDate>Sat, 19 Mar 2016 19:16:20 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1&#34;&gt;Nixie clock part 1&lt;/h1&gt;
 
-&lt;p&gt;I enjoy building things and for some reason, I tend to enjoy building more &amp;ldquo;classic&amp;rdquo; things. Awhile back I came across the &lt;a href=&#34;https://www.adafruit.com/products/194&#34;&gt;Adafruit Ice Tube Clock Kit&lt;/a&gt; which I thought was one amazing looking clock. Unfortunately they discontinued it but since I enjoy making things harder on myself than they should be, I went to Google to try and find something similar. What I came across was a pretty popular project called a nixie clock.&lt;/p&gt;
+&lt;p&gt;I enjoy building things and for some reason, I tend to enjoy building more &amp;ldquo;classic&amp;rdquo; things. Awhile back I came across the &lt;a href=&#34;https://www.adafruit.com/products/194&#34; target=&#34;_blank&#34;&gt;Adafruit Ice Tube Clock Kit&lt;/a&gt; which I thought was one amazing looking clock. Unfortunately they discontinued it but since I enjoy making things harder on myself than they should be, I went to Google to try and find something similar. What I came across was a pretty popular project called a nixie clock.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
@@ -184,18 +187,18 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;A nixie clock is simply a clock that is built using multiple &lt;a href=&#34;https://en.wikipedia.org/wiki/Nixie_tube&#34;&gt;nixie tubes&lt;/a&gt; for the display. They come in all sorts of different sizes and shapes which makes it easy to design a clock for whatever purpose you want (small desk clock, larger wall clock, etc). In my case I wanted something similar to the Adafruit clock, small enough that I could put it on a desk but still big enough to show off some of the components. I like the mechanical look so I had planned on putting everything in some type of clear case so you could see all of the electronics.&lt;/p&gt;
+&lt;p&gt;A nixie clock is simply a clock that is built using multiple &lt;a href=&#34;https://en.wikipedia.org/wiki/Nixie_tube&#34; target=&#34;_blank&#34;&gt;nixie tubes&lt;/a&gt; for the display. They come in all sorts of different sizes and shapes which makes it easy to design a clock for whatever purpose you want (small desk clock, larger wall clock, etc). In my case I wanted something similar to the Adafruit clock, small enough that I could put it on a desk but still big enough to show off some of the components. I like the mechanical look so I had planned on putting everything in some type of clear case so you could see all of the electronics.&lt;/p&gt;
 
 &lt;h2 id=&#34;research&#34;&gt;Research&lt;/h2&gt;
 
 &lt;p&gt;I am not an electronics guy at all, I can take a bag of parts with a schematic or instructions and solder it all together, but if you are looking at me to design a circuit from the ground up then you are in for a world of hurt.
-Luckily there are a bunch of smart people out there that have built nixie clocks before and have been kind enough to share. One of those people is Andrew Saxén who has not only a great write-up on how he built his nixie clock, but also links to the code that runs it as well as the PCB layout. You can check it out at his site &lt;a href=&#34;http://codeterrific.com/arduino/nixie-clock-build&#34;&gt;Code Terrific&lt;/a&gt;. There are tons of other links out there showing various builds, but for whatever reason Adam&amp;rsquo;s just seemed to click with me so I decided I was going to use what he had already done as my &amp;ldquo;base&amp;rdquo;.&lt;/p&gt;
+Luckily there are a bunch of smart people out there that have built nixie clocks before and have been kind enough to share. One of those people is Andrew Saxén who has not only a great write-up on how he built his nixie clock, but also links to the code that runs it as well as the PCB layout. You can check it out at his site &lt;a href=&#34;http://codeterrific.com/arduino/nixie-clock-build&#34; target=&#34;_blank&#34;&gt;Code Terrific&lt;/a&gt;. There are tons of other links out there showing various builds, but for whatever reason Adam&amp;rsquo;s just seemed to click with me so I decided I was going to use what he had already done as my &amp;ldquo;base&amp;rdquo;.&lt;/p&gt;
 
 &lt;h2 id=&#34;chop-chop&#34;&gt;chop chop&lt;/h2&gt;
 
 &lt;p&gt;For my project all I wanted was a clock, I didn&amp;rsquo;t really care about temp or humidity so there wouldn&amp;rsquo;t be a need to include a DHT22 sensor in the build. Additionally, as of right now I plan on having the PCB printed as opposed to etching one at home. This means I&amp;rsquo;ll be able to take advantage of using a two sided PCB. The third change from Adam&amp;rsquo;s original design I&amp;rsquo;d like to make is to directly integrate his real-time clock circuit into the nixie PCB, that way everything is all in one spot.&lt;/p&gt;
 
-&lt;p&gt;With all of that I downloaded the &lt;a href=&#34;http://fritzing.org/home/&#34;&gt;Fritzing&lt;/a&gt; application and set out to re-create Adam&amp;rsquo;s PCB as best I could. Once I had that I started to strip away things I didn&amp;rsquo;t think I&amp;rsquo;d need, add some new things and then try and condense it down as much as possible to save on costs. Part of me wanted to make a really nice looking PCB but for my first attempt the cost would have been a bit more than I wanted to spend. I&amp;rsquo;m thinking if this turns out ok I can always re-use the nixie tubes and create a new, fancier PCB later.&lt;/p&gt;
+&lt;p&gt;With all of that I downloaded the &lt;a href=&#34;http://fritzing.org/home/&#34; target=&#34;_blank&#34;&gt;Fritzing&lt;/a&gt; application and set out to re-create Adam&amp;rsquo;s PCB as best I could. Once I had that I started to strip away things I didn&amp;rsquo;t think I&amp;rsquo;d need, add some new things and then try and condense it down as much as possible to save on costs. Part of me wanted to make a really nice looking PCB but for my first attempt the cost would have been a bit more than I wanted to spend. I&amp;rsquo;m thinking if this turns out ok I can always re-use the nixie tubes and create a new, fancier PCB later.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
@@ -206,13 +209,13 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
 
 &lt;p&gt;If your skills are at hobbyist electronics person or above I apologize for the mess that is the PCB above :)&lt;/p&gt;
 
-&lt;p&gt;With this design it would be about ~$58 for three boards from &lt;a href=&#34;https://oshpark.com&#34;&gt;OSH Park&lt;/a&gt; which isn&amp;rsquo;t that bad for me. With a small child around and a full-time job the ability for me to find time to hand etch these is highly unlikely so it makes more sense to just bite the bullet and have someone else print them.&lt;/p&gt;
+&lt;p&gt;With this design it would be about ~$58 for three boards from &lt;a href=&#34;https://oshpark.com&#34; target=&#34;_blank&#34;&gt;OSH Park&lt;/a&gt; which isn&amp;rsquo;t that bad for me. With a small child around and a full-time job the ability for me to find time to hand etch these is highly unlikely so it makes more sense to just bite the bullet and have someone else print them.&lt;/p&gt;
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 
 &lt;p&gt;The base PCB isn&amp;rsquo;t finalized but I think it&amp;rsquo;s close enough for now. The next thing that I have been thinking about is how to mount the tubes. Part of me would like to make an additional PCB and have the tubes slot right into that PCB and then connect it to the other PCB either via headers or a ribbon cable. The problem with that is since I&amp;rsquo;m pretty much useless, I currently don&amp;rsquo;t have the ability to design the libraries needed to mock out IN-8 tubes and I haven&amp;rsquo;t been able to find any existing resources. Everyone seems to have the IN-12A but I just don&amp;rsquo;t like the look of those as much.&lt;/p&gt;
 
-&lt;p&gt;Another option would be to use &lt;a href=&#34;http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;amp;cPath=4_11&amp;amp;products_id=74&#34;&gt;these&lt;/a&gt; pre-built &amp;ldquo;sockets&amp;rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&amp;rsquo;m not sure how much they would get me.&lt;/p&gt;
+&lt;p&gt;Another option would be to use &lt;a href=&#34;http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;amp;cPath=4_11&amp;amp;products_id=74&#34; target=&#34;_blank&#34;&gt;these&lt;/a&gt; pre-built &amp;ldquo;sockets&amp;rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&amp;rsquo;m not sure how much they would get me.&lt;/p&gt;
 
 &lt;p&gt;The third option is do just do what Adam did and run the wires directly to the tubes. I think if I could do this in a fairly clean manner it would look pretty cool and go with the whole mechanical/exposed look I want.&lt;/p&gt;
 </description>

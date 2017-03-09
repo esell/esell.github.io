@@ -6,6 +6,9 @@
     <description>Recent content in Posts on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>esell@esheavyindustries.com (esells)</managingEditor>
+    <webMaster>esell@esheavyindustries.com (esells)</webMaster>
+    <copyright>who knows?</copyright>
     <lastBuildDate>Fri, 03 Mar 2017 21:10:30 -0600</lastBuildDate>
     <atom:link href="https://esheavyindustries.com/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +16,7 @@
       <title>My Adventures in Self-hosting</title>
       <link>https://esheavyindustries.com/2017/03/my-adventures-in-self-hosting/</link>
       <pubDate>Fri, 03 Mar 2017 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2017/03/my-adventures-in-self-hosting/</guid>
       <description>&lt;p&gt;Some people&amp;rsquo;s new years resolution was to lose weight, others was to give themselves more &amp;ldquo;me&amp;rdquo; time. Mine was to move off of as much SaaS offerings as I could in an attempt
 to start taking back my privacy.&lt;/p&gt;
@@ -26,37 +29,37 @@ I had already closed down my social media accounts, which were probably the ones
 &lt;p&gt;First on my list was this site. I had been thinking of moving it for some time as hosting it on Github pages didn&amp;rsquo;t allow me to use SSL unless I used something like Cloudflare which I didn&amp;rsquo;t want
 to do. Most of the big cloud providers have some type of blob storage that works great for static sites, but again, at the time none of them had what I would call acceptable
 SSL support. The solution I ended up going with was a small VM with one of the large cloud providers and setup disk encryption (with my key) to make sure it really was &amp;ldquo;mine&amp;rdquo;.
-Now I needed a web server. I had been an Apache guy most of my life but that felt too heavy for what I wanted. I had heard of &lt;a href=&#34;https://caddyserver.com/&#34;&gt;Caddy&lt;/a&gt; and after reading the
-docs it sounded like a perfect fit. It was easy to setup, has support for &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt; out of the box and also has a nifty git plugin that pulls in my static
+Now I needed a web server. I had been an Apache guy most of my life but that felt too heavy for what I wanted. I had heard of &lt;a href=&#34;https://caddyserver.com/&#34; target=&#34;_blank&#34;&gt;Caddy&lt;/a&gt; and after reading the
+docs it sounded like a perfect fit. It was easy to setup, has support for &lt;a href=&#34;https://letsencrypt.org/&#34; target=&#34;_blank&#34;&gt;Let&amp;rsquo;s Encrypt&lt;/a&gt; out of the box and also has a nifty git plugin that pulls in my static
 site from my git repo whenever the content has changed. It took me about 5 minutes to get things up and running at which point I had one item off of my checklist. Caddy is awesome and as you&amp;rsquo;ll see later,
 it ended up being the hub of most of my solutions.&lt;/p&gt;
 
 &lt;p&gt;The next item was how to get off of Github and the random services I had connected into it like TravisCI and Coveralls. The part I struggled with here was the social aspect of it. Not so much stars, watchers, etc but more of the PR and issue management system. Granted I don&amp;rsquo;t have any high-profile repos but at the same time I didn&amp;rsquo;t want to put up a barrier to prevent people from submitting
-something. Asking someone to create a user/pass just for my shitty git repo wasn&amp;rsquo;t an option. As luck would have it, &lt;a href=&#34;https://gitea.io/en-US/&#34;&gt;Gitea&lt;/a&gt;, which is a fork of &lt;a href=&#34;https://gogs.io/&#34;&gt;Gogs&lt;/a&gt; had just sprung up. Gitea has been much more active with regards to commits and one of those commits just happened to be supporting authentication via Github! I pulled down the source, got it all built
+something. Asking someone to create a user/pass just for my shitty git repo wasn&amp;rsquo;t an option. As luck would have it, &lt;a href=&#34;https://gitea.io/en-US/&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt;, which is a fork of &lt;a href=&#34;https://gogs.io/&#34; target=&#34;_blank&#34;&gt;Gogs&lt;/a&gt; had just sprung up. Gitea has been much more active with regards to commits and one of those commits just happened to be supporting authentication via Github! I pulled down the source, got it all built
 and dropped it behind my Caddy server, again with it&amp;rsquo;s own fancy Let&amp;rsquo;s Encrypt cert. Is Gitea a bit rough around the edges? Sure, but it covers everything I need and is fairly lightweight,
 easy to setup/maintain and can use sqlite as a backend so I didn&amp;rsquo;t have to manage a database server.&lt;/p&gt;
 
 &lt;p&gt;So I had a solution to my git repo hosting, now what about replacing TravisCI and Coveralls? I&amp;rsquo;m glad you asked! This part of my self-hosting process ended up being a bit more work than I expected.
-To replace TravisCI I went with self-hosted &lt;a href=&#34;https://github.com/drone/drone&#34;&gt;Drone&lt;/a&gt;. Drone was pretty easy to get going since it comes as a Docker image so once I had it fired up I simply
+To replace TravisCI I went with self-hosted &lt;a href=&#34;https://github.com/drone/drone&#34; target=&#34;_blank&#34;&gt;Drone&lt;/a&gt;. Drone was pretty easy to get going since it comes as a Docker image so once I had it fired up I simply
 logged in and enabled it for the repos I wanted. The &lt;code&gt;.drone.yml&lt;/code&gt; file took a bit of work to get working with the native go vendoring system but I eventually got it working. Coveralls was next up on
-the list and surprisingly I didn&amp;rsquo;t find very many open source options. I ended up hacking together &lt;a href=&#34;https://git.esheavyindustries.com/esell/hoptocopter&#34;&gt;hoptocopter&lt;/a&gt; which actually
-just uses the native go test coverage tooling and then spits out one of those fancy badges via &lt;a href=&#34;http://shields.io/&#34;&gt;shields&lt;/a&gt;. To avoid having to call their API I used the wonderful
-&lt;a href=&#34;https://github.com/beevelop/docker-shields&#34;&gt;shields docker image&lt;/a&gt; provided by beevelop. From there I just setup a Docker compose file that started up hoptocopter and shields together and bam!
+the list and surprisingly I didn&amp;rsquo;t find very many open source options. I ended up hacking together &lt;a href=&#34;https://git.esheavyindustries.com/esell/hoptocopter&#34; target=&#34;_blank&#34;&gt;hoptocopter&lt;/a&gt; which actually
+just uses the native go test coverage tooling and then spits out one of those fancy badges via &lt;a href=&#34;http://shields.io/&#34; target=&#34;_blank&#34;&gt;shields&lt;/a&gt;. To avoid having to call their API I used the wonderful
+&lt;a href=&#34;https://github.com/beevelop/docker-shields&#34; target=&#34;_blank&#34;&gt;shields docker image&lt;/a&gt; provided by beevelop. From there I just setup a Docker compose file that started up hoptocopter and shields together and bam!
 Instant code coverage badges. At this point I had basically re-created everything I had in Github. There were some things I couldn&amp;rsquo;t implement such as builds being triggered by PRs, but that wasn&amp;rsquo;t
 a huge deal to me so I considered it a success. Guess what I used to front these? If you said Caddy you&amp;rsquo;d be correct.&lt;/p&gt;
 
 &lt;p&gt;Previously this site had used Google Analytics for metrics. I actually like the product and enjoy seeing all of the cool data about my site but Google and privacy do not belong in the same
-sentence. My next goal was to rid myself of Google Analytics and find something I could run on my server but that still had an easy to use UI. Enter &lt;a href=&#34;https://www.goaccess.io/&#34;&gt;GoAccess&lt;/a&gt;.
+sentence. My next goal was to rid myself of Google Analytics and find something I could run on my server but that still had an easy to use UI. Enter &lt;a href=&#34;https://www.goaccess.io/&#34; target=&#34;_blank&#34;&gt;GoAccess&lt;/a&gt;.
 Really nothing to say about GoAccess outside of it just works. It parses the log files from Caddy and turns them into a pretty html page. This page is served up by&amp;hellip; Caddy.&lt;/p&gt;
 
 &lt;p&gt;Password management, a great debate topic. Do you use a fancy hosted tool like LastPass or do you use something you can store locally like KeePass? The answer for me was neither, I went with
-&lt;a href=&#34;https://www.passwordstore.org/&#34;&gt;pass&lt;/a&gt; which is a super simple (good) way to manage your passwords but still be able to access them on most devices including my Android phone. I setup pass to
+&lt;a href=&#34;https://www.passwordstore.org/&#34; target=&#34;_blank&#34;&gt;pass&lt;/a&gt; which is a super simple (good) way to manage your passwords but still be able to access them on most devices including my Android phone. I setup pass to
 use git as a storage location by setting up a private repo on my new Gitea setup. I lost a tiny bit of functionality over something like LastPass, but nothing I couldn&amp;rsquo;t do without. If you
-wanted to be super crazy you could use something like &lt;a href=&#34;https://spwhitton.name/tech/code/git-remote-gcrypt/&#34;&gt;git-remote-gcrypt&lt;/a&gt; to encrypt your actual git repo. Double the encryption, double the fun.&lt;/p&gt;
+wanted to be super crazy you could use something like &lt;a href=&#34;https://spwhitton.name/tech/code/git-remote-gcrypt/&#34; target=&#34;_blank&#34;&gt;git-remote-gcrypt&lt;/a&gt; to encrypt your actual git repo. Double the encryption, double the fun.&lt;/p&gt;
 
 &lt;p&gt;Now I have to talk about the things I haven&amp;rsquo;t come up with a good solution for (yet). The biggest is e-mail. A few years ago I tried hosting my own mail server and did everything the internet
 says to do to avoid your e-mails being flagged as spam. Unfortunately that didn&amp;rsquo;t work and about 80% of my e-mails ended up in the spam folder of my friends and family. I am currently using
-&lt;a href=&#34;https://protonmail.com/&#34;&gt;Protonmail&lt;/a&gt; which is great and I have no real problems with, it&amp;rsquo;s just that I don&amp;rsquo;t have those messages on my own server so I have to trust that everything
+&lt;a href=&#34;https://protonmail.com/&#34; target=&#34;_blank&#34;&gt;Protonmail&lt;/a&gt; which is great and I have no real problems with, it&amp;rsquo;s just that I don&amp;rsquo;t have those messages on my own server so I have to trust that everything
 they say they do is actually true. That&amp;rsquo;s a fairly big thing to do but at this point I just have to suck it up and deal with it.
 The second area is image and video sharing. Things like Google Drive or Google Photos are great products but again, Google. I&amp;rsquo;ve been looking around for some open source alternatives
 and haven&amp;rsquo;t found anything yet that meets my needs. I want to be able to send photos right from my phone to the app on my server and then send out generated links to family members
@@ -72,7 +75,7 @@ maintenance I don&amp;rsquo;t really have to do much sysadmin type work which is
       <title>I owe my career to being a script kiddie</title>
       <link>https://esheavyindustries.com/2017/01/i-owe-my-career-to-being-a-script-kiddie/</link>
       <pubDate>Fri, 13 Jan 2017 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2017/01/i-owe-my-career-to-being-a-script-kiddie/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s an uncomfortable feeling when you have to tell your mom that the internet service she had been paying for had just been terminated.&lt;/p&gt;
 
@@ -100,7 +103,7 @@ At that point I was the happiest kid around because my school had started accept
 
 &lt;p&gt;At this point I was in full on consume mode. My nights and early mornings were still being spent searching and reading. Places like linenoise.org, bronc buster&amp;rsquo;s forum, the l0pht and technotronic were like fucking crack. I had the hacker&amp;rsquo;s manifesto memorized. I knew all about war dialing and to prove it I had one angry fellow call my house and leave a message after my war dialer had called him multiple times between 1-4am. Luckily I was able to delete that message before my mom heard it. My friends were playing video games, watching TV or doing homework at night while I was reading monospaced font filled text files one after another, writing perl scripts and learning the amazing world of awk and sed.&lt;/p&gt;
 
-&lt;p&gt;Again we&amp;rsquo;ll fast forward a bit to a time when the &lt;a href=&#34;https://www.ihatefeds.com/ashtray-lumberjacks_0wn3rsh1p.pdf&#34;&gt;ashtray lumberjacks&lt;/a&gt;, &lt;a href=&#34;http://www.ytcracker.com/&#34;&gt;ytcracker&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Milw0rm&#34;&gt;milw0rm&lt;/a&gt; were making waves. I was in a small but tight knit group (telehack.net yo!) whose main fame, aside from a few webpage defacement shout outs, was our large stash of texts and zines. Also that time we had a &lt;a href=&#34;http://cd.textfiles.com/plamedia/text/United%20Phone%20Losers%20Text%20Files/UPL014.txt&#34;&gt;&amp;ldquo;feud&amp;rdquo; with the UPL&lt;/a&gt;. We were all addicted to learning so we just took all of the files we already had locally and combined them into a single site. Outside of that we did what I think the majority of bored teens in our world did back then which was hang out on IRC 80% of the time, dabble in some gray area security things and read. I was lucky enough to live in an area that had a fairly vibrant hacker culture (_&lt;strong&gt;THE&lt;/strong&gt;_ 303) and although I never made it to a 2600 meeting on the 16th st mall, I did meet a few like-minded individuals to help bolster my skills and add to the knowledge I was accumulating.&lt;/p&gt;
+&lt;p&gt;Again we&amp;rsquo;ll fast forward a bit to a time when the &lt;a href=&#34;https://www.ihatefeds.com/ashtray-lumberjacks_0wn3rsh1p.pdf&#34; target=&#34;_blank&#34;&gt;ashtray lumberjacks&lt;/a&gt;, &lt;a href=&#34;http://www.ytcracker.com/&#34; target=&#34;_blank&#34;&gt;ytcracker&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Milw0rm&#34; target=&#34;_blank&#34;&gt;milw0rm&lt;/a&gt; were making waves. I was in a small but tight knit group (telehack.net yo!) whose main fame, aside from a few webpage defacement shout outs, was our large stash of texts and zines. Also that time we had a &lt;a href=&#34;http://cd.textfiles.com/plamedia/text/United%20Phone%20Losers%20Text%20Files/UPL014.txt&#34; target=&#34;_blank&#34;&gt;&amp;ldquo;feud&amp;rdquo; with the UPL&lt;/a&gt;. We were all addicted to learning so we just took all of the files we already had locally and combined them into a single site. Outside of that we did what I think the majority of bored teens in our world did back then which was hang out on IRC 80% of the time, dabble in some gray area security things and read. I was lucky enough to live in an area that had a fairly vibrant hacker culture (_&lt;strong&gt;THE&lt;/strong&gt;_ 303) and although I never made it to a 2600 meeting on the 16th st mall, I did meet a few like-minded individuals to help bolster my skills and add to the knowledge I was accumulating.&lt;/p&gt;
 
 &lt;p&gt;So here is where I talk about how I never liked school but was still able to get amazing grades, go to MIT and become some badass computer/technology guy. Unfortunately (maybe fortunately?) that wasn&amp;rsquo;t me. I didn&amp;rsquo;t like school but because of that I never went which meant I got shitty grades. I didn&amp;rsquo;t go to college because I had shitty grades and was never going to be able to afford it without some type of scholarship. I&amp;rsquo;m not a genius or one of those people who think at another level. I&amp;rsquo;m just a guy who likes to learn and tinker.&lt;/p&gt;
 
@@ -120,7 +123,7 @@ At that point I was the happiest kid around because my school had started accept
 
 &lt;p&gt;Let&amp;rsquo;s take the serious level up a notch. Think about how much luck was involved in order for that computer to enter my home so many years ago. I am almost certain that had it not been for that computer I wouldn&amp;rsquo;t be living the lifestyle that I have now. Now think about how many other children do not have such luck and never get the chance to get in flame wars on IRC or read 2600. Are we shorting a huge section of our population and missing out on talent? I know people will say things like &amp;ldquo;you could have used computers at the library&amp;rdquo; or &amp;ldquo;you could have used school computers&amp;rdquo; but that is bullshit. The availability of both of those locations is pretty limited and typically locked down with regards to what you can access. People who are not born with the gift need to be able to immerse themselves in the world of computers with no roadblocks or barriers, that&amp;rsquo;s how we make up for the lack of natural talent. Also you can&amp;rsquo;t install python on those computers to make 1337 scripts.&lt;/p&gt;
 
-&lt;p&gt;Now comes the part where I talk about the purpose of this post and that is to ask: what are you doing to help evangelize the world of computers? Are you donating time and/or money to organizations that help people who might not typically have computer access get it? Are you giving your old (but still working) hardware to someone who could really use it? Are you explaining to your nieces and nephews not only what a payphone is but how you used to use a &lt;a href=&#34;http://www.phonelosers.org/redbox/&#34;&gt;redbox&lt;/a&gt; to get free calls on those ancient artifacts?&lt;/p&gt;
+&lt;p&gt;Now comes the part where I talk about the purpose of this post and that is to ask: what are you doing to help evangelize the world of computers? Are you donating time and/or money to organizations that help people who might not typically have computer access get it? Are you giving your old (but still working) hardware to someone who could really use it? Are you explaining to your nieces and nephews not only what a payphone is but how you used to use a &lt;a href=&#34;http://www.phonelosers.org/redbox/&#34; target=&#34;_blank&#34;&gt;redbox&lt;/a&gt; to get free calls on those ancient artifacts?&lt;/p&gt;
 
 &lt;p&gt;Not everyone has to be a developer so think outside of that. Think about all of those DBAs out there or the desktop PC admins. What about the network engineers or the Active Directory people (god bless their souls)? Take the opportunity to help the kids who have no idea what the world of computers can offer them and help them realize what is possible. Go out and light a fire under the ones who are into it, show them cool shit! Setup a hack day at your work and invite schools from lower income areas to come in and hack on hardware or software. Show them some of the cool stuff you can do with computers and help them understand what is out there waiting for them if they want to work at it. If you have a story like mine share it! It&amp;rsquo;s great to talk about computers if you come from a privileged  background (seriously, it is), but it&amp;rsquo;s even more impactful when you can talk about a story that relates to the world they live in. Shit, share it at your local users group or meetup in the hopes that someone else is inspired and starts helping. Have no clue where to start? My contact info is at the top of the page, contact me and I&amp;rsquo;d love to help.&lt;/p&gt;
 </description>
@@ -130,21 +133,21 @@ At that point I was the happiest kid around because my school had started accept
       <title>Hand Wired Keyboard pt2</title>
       <link>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</link>
       <pubDate>Fri, 27 May 2016 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/05/hand-wired-keyboard-pt2/</guid>
       <description>
 
 &lt;h1 id=&#34;hand-wired-keyboard-part-2&#34;&gt;Hand Wired Keyboard Part 2&lt;/h1&gt;
 
-&lt;p&gt;At the end of &lt;a href=&#34;http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/&#34;&gt;part 1&lt;/a&gt; I had a working keyboard but it had to be plugged in via USB. I haven&amp;rsquo;t used a wired keyboard in probably five years so having this
+&lt;p&gt;At the end of &lt;a href=&#34;http://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/&#34; target=&#34;_blank&#34;&gt;part 1&lt;/a&gt; I had a working keyboard but it had to be plugged in via USB. I haven&amp;rsquo;t used a wired keyboard in probably five years so having this
 one wired made me sad. There were a few hints at how people had done bluetooth + teensy setups (the teensy is the brains) but no real tutorials or anything. So as I typically do when presented with
-an electronics project, I headed over to &lt;a href=&#34;http://adafruit.com&#34;&gt;adafruit&lt;/a&gt; to see how much I could get already pre-built for me.&lt;/p&gt;
+an electronics project, I headed over to &lt;a href=&#34;http://adafruit.com&#34; target=&#34;_blank&#34;&gt;adafruit&lt;/a&gt; to see how much I could get already pre-built for me.&lt;/p&gt;
 
-&lt;p&gt;I already had the battery/charging stuff from a previous project so all I needed was something for the bluetooth. Guess what? They have a part for that: &lt;a href=&#34;https://www.adafruit.com/products/1535&#34;&gt;bluefruit EZ-Key&lt;/a&gt;. This little guy has the ability to take input in on it&amp;rsquo;s UART port and fire it off via bluetooth, perfect!&lt;/p&gt;
+&lt;p&gt;I already had the battery/charging stuff from a previous project so all I needed was something for the bluetooth. Guess what? They have a part for that: &lt;a href=&#34;https://www.adafruit.com/products/1535&#34; target=&#34;_blank&#34;&gt;bluefruit EZ-Key&lt;/a&gt;. This little guy has the ability to take input in on it&amp;rsquo;s UART port and fire it off via bluetooth, perfect!&lt;/p&gt;
 
 &lt;p&gt;Now I had to figure out
-the wiring as I wanted to be able to charge the battery via the teensy USB port as opposed to using the USB port on the &lt;a href=&#34;https://www.adafruit.com/products/1904&#34;&gt;lipo charger board&lt;/a&gt;. There is a small trace on the teensy that you can cut
-to stop the USB port from actually providing power (&lt;a href=&#34;http://www.pjrc.com/teensy/external_power.html&#34;&gt;see here&lt;/a&gt;) which sounded like what I wanted so I had a few drinks to steady my hand, pulled out the xacto knife and made the cut.
+the wiring as I wanted to be able to charge the battery via the teensy USB port as opposed to using the USB port on the &lt;a href=&#34;https://www.adafruit.com/products/1904&#34; target=&#34;_blank&#34;&gt;lipo charger board&lt;/a&gt;. There is a small trace on the teensy that you can cut
+to stop the USB port from actually providing power (&lt;a href=&#34;http://www.pjrc.com/teensy/external_power.html&#34; target=&#34;_blank&#34;&gt;see here&lt;/a&gt;) which sounded like what I wanted so I had a few drinks to steady my hand, pulled out the xacto knife and made the cut.
 After that it was just a matter of getting the TX/RX from the teensy hooked up to the EZ-Key and then the power + charging coming from the lipo charger board to the teensy. Here is an amazing
 diagram I put together showing what I did:&lt;/p&gt;
 
@@ -163,8 +166,8 @@ arrangements but every time I ended up pinching a diode or something causing the
 will need to order a new middle piece cut from acrylic in order to hide all the guts but honestly I kind of like the exposed look.&lt;/p&gt;
 
 &lt;p&gt;With regards to the firmware, a few changes had to be made so I did my best to pretend to be a C programmer. The biggest change was renaming a bunch of macros that had at some point been renamed
-and never updated across the TMK code base, you can see the PR I submitted for that &lt;a href=&#34;https://github.com/tmk/tmk_keyboard/pull/341&#34;&gt;here&lt;/a&gt;. After that was done it was basically just a matter of
-copying the bluetooth converter sample project in TMK and updating it to fit my actual keyboard. You can see the changes I made &lt;a href=&#34;https://github.com/esell/tmk_keyboard/commits/neutrino&#34;&gt;here&lt;/a&gt;.
+and never updated across the TMK code base, you can see the PR I submitted for that &lt;a href=&#34;https://github.com/tmk/tmk_keyboard/pull/341&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;. After that was done it was basically just a matter of
+copying the bluetooth converter sample project in TMK and updating it to fit my actual keyboard. You can see the changes I made &lt;a href=&#34;https://github.com/esell/tmk_keyboard/commits/neutrino&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.
 Please keep in mind that the keymap being used is very basic and there is a lot of clean-up that could be done. This was simply just to verify everything was working as it should.:w&lt;/p&gt;
 </description>
     </item>
@@ -173,7 +176,7 @@ Please keep in mind that the keymap being used is very basic and there is a lot 
       <title>Hand Wired Keyboard pt1</title>
       <link>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</link>
       <pubDate>Fri, 22 Apr 2016 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/04/hand-wired-keyboard-pt1/</guid>
       <description>
 
@@ -199,10 +202,10 @@ I knew I wanted something that wasn&amp;rsquo;t super &amp;ldquo;clicky&amp;rdqu
 everywhere I looked so I had to go the message board group-buy route. Luckily the group-buy was legit and I ended up with all the switches I needed.&lt;/p&gt;
 
 &lt;p&gt;Ah, so now I needed something to put those switches into aka the &amp;ldquo;plate&amp;rdquo;. I knew I wanted a ~65% style keyboard which is basically a typical keyboard stripped of all the non-essential stuff (for me). Things like function keys, media keys, etc.
-I came across a few sites (&lt;a href=&#34;http://builder.swillkb.com/&#34;&gt;plate &amp;amp; case builder&lt;/a&gt; and &lt;a href=&#34;http://www.keyboard-layout-editor.com/&#34;&gt;keyboard layout editor&lt;/a&gt;) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
-So I created my layout, created my CAD files for the plates (top and bottom) and headed over to &lt;a href=&#34;http://www.bigbluesaw.com/&#34;&gt;big blue saw&lt;/a&gt; to get my quote. For one set of plates it was going to cost me ~$90!! Now I&amp;rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&amp;rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&amp;rsquo;t going to be able to find that many people who wanted to make their own keyboard.&lt;/p&gt;
+I came across a few sites (&lt;a href=&#34;http://builder.swillkb.com/&#34; target=&#34;_blank&#34;&gt;plate &amp;amp; case builder&lt;/a&gt; and &lt;a href=&#34;http://www.keyboard-layout-editor.com/&#34; target=&#34;_blank&#34;&gt;keyboard layout editor&lt;/a&gt;) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
+So I created my layout, created my CAD files for the plates (top and bottom) and headed over to &lt;a href=&#34;http://www.bigbluesaw.com/&#34; target=&#34;_blank&#34;&gt;big blue saw&lt;/a&gt; to get my quote. For one set of plates it was going to cost me ~$90!! Now I&amp;rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&amp;rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&amp;rsquo;t going to be able to find that many people who wanted to make their own keyboard.&lt;/p&gt;
 
-&lt;p&gt;By pure chance I came across someone online talking about their &amp;ldquo;neutrino&amp;rdquo; build. It was a 65% keyboard that was being sold by &lt;a href=&#34;http://olkb.com/&#34;&gt;Ortholinear Keyboards&lt;/a&gt; and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&amp;rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&amp;rsquo;t ship for over four months. At this point I&amp;rsquo;m starting to realize that things in the mechanical keyboard game don&amp;rsquo;t come easy.&lt;/p&gt;
+&lt;p&gt;By pure chance I came across someone online talking about their &amp;ldquo;neutrino&amp;rdquo; build. It was a 65% keyboard that was being sold by &lt;a href=&#34;http://olkb.com/&#34; target=&#34;_blank&#34;&gt;Ortholinear Keyboards&lt;/a&gt; and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&amp;rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&amp;rsquo;t ship for over four months. At this point I&amp;rsquo;m starting to realize that things in the mechanical keyboard game don&amp;rsquo;t come easy.&lt;/p&gt;
 
 &lt;p&gt;When the plates for the keyboard finally arrived I grabbed all the other parts I had ordered and went to town. Initially I had talked myself into believing that soldering all of these random diodes and wires wasn&amp;rsquo;t going to be an issue and that I&amp;rsquo;d knock it out in no time. wrong. wrong. Through hole soldering will never (never!) prepare you for the pain that is soldering a hand wired keyboard. If you are reading this right now because you are thinking about doing this I HIGHLY suggest you either make your own PCB or buy a kit that comes with one.&lt;/p&gt;
 
@@ -245,7 +248,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&amp;rsquo;s called &lt;a href=&#34;https://github.com/tmk/tmk_keyboard&#34;&gt;TMK&lt;/a&gt; and is actually pretty easy to use.
+&lt;p&gt;At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&amp;rsquo;s called &lt;a href=&#34;https://github.com/tmk/tmk_keyboard&#34; target=&#34;_blank&#34;&gt;TMK&lt;/a&gt; and is actually pretty easy to use.
 Since all keyboards are going to be different, TMK has you pass in what your keyboard matrix looks like and then what you want each key to do when it&amp;rsquo;s pressed. TMK also has this concept of layers which is great for my 65% board as I can still have the functionality of say, media keys, I just need to use a specific key sequence to activate it. As an example I don&amp;rsquo;t have a &amp;ldquo;tilde&amp;rdquo; key by default so if I press fn + Esc I&amp;rsquo;ll get a tilde.
 Anyways, I got the firmware to compile and loaded it onto the teensy and it actually worked! Below is the final keyboard with a few keys that I&amp;rsquo;ll have to swap out as they are not the right size/type:&lt;/p&gt;
 
@@ -264,13 +267,13 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
       <title>nixie clock part 1-a</title>
       <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</link>
       <pubDate>Thu, 24 Mar 2016 21:10:30 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1-a/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1-a&#34;&gt;Nixie clock part 1-a&lt;/h1&gt;
 
-&lt;p&gt;So things have changed. I&amp;rsquo;ve taken out the Arudino and replaced it with an &lt;a href=&#34;https://www.adafruit.com/products/2000&#34;&gt;Adafruit Pro Trinket&lt;/a&gt;. Additionally I updated the PCB so show the &lt;a href=&#34;https://www.adafruit.com/products/1588&#34;&gt;Adafruit Bluefruit&lt;/a&gt; and took out the homebrew RTC circuit and just went with the &lt;a href=&#34;https://www.adafruit.com/products/3013&#34;&gt;Adafruit DS3231 breakout&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So things have changed. I&amp;rsquo;ve taken out the Arudino and replaced it with an &lt;a href=&#34;https://www.adafruit.com/products/2000&#34; target=&#34;_blank&#34;&gt;Adafruit Pro Trinket&lt;/a&gt;. Additionally I updated the PCB so show the &lt;a href=&#34;https://www.adafruit.com/products/1588&#34; target=&#34;_blank&#34;&gt;Adafruit Bluefruit&lt;/a&gt; and took out the homebrew RTC circuit and just went with the &lt;a href=&#34;https://www.adafruit.com/products/3013&#34; target=&#34;_blank&#34;&gt;Adafruit DS3231 breakout&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
@@ -287,13 +290,13 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
       <title>nixie clock part 1</title>
       <link>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</link>
       <pubDate>Sat, 19 Mar 2016 19:16:20 -0600</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/03/nixie-clock-part-1/</guid>
       <description>
 
 &lt;h1 id=&#34;nixie-clock-part-1&#34;&gt;Nixie clock part 1&lt;/h1&gt;
 
-&lt;p&gt;I enjoy building things and for some reason, I tend to enjoy building more &amp;ldquo;classic&amp;rdquo; things. Awhile back I came across the &lt;a href=&#34;https://www.adafruit.com/products/194&#34;&gt;Adafruit Ice Tube Clock Kit&lt;/a&gt; which I thought was one amazing looking clock. Unfortunately they discontinued it but since I enjoy making things harder on myself than they should be, I went to Google to try and find something similar. What I came across was a pretty popular project called a nixie clock.&lt;/p&gt;
+&lt;p&gt;I enjoy building things and for some reason, I tend to enjoy building more &amp;ldquo;classic&amp;rdquo; things. Awhile back I came across the &lt;a href=&#34;https://www.adafruit.com/products/194&#34; target=&#34;_blank&#34;&gt;Adafruit Ice Tube Clock Kit&lt;/a&gt; which I thought was one amazing looking clock. Unfortunately they discontinued it but since I enjoy making things harder on myself than they should be, I went to Google to try and find something similar. What I came across was a pretty popular project called a nixie clock.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
@@ -302,18 +305,18 @@ Anyways, I got the firmware to compile and loaded it onto the teensy and it actu
 &lt;/figure&gt;
 &lt;/center&gt;&lt;/p&gt;
 
-&lt;p&gt;A nixie clock is simply a clock that is built using multiple &lt;a href=&#34;https://en.wikipedia.org/wiki/Nixie_tube&#34;&gt;nixie tubes&lt;/a&gt; for the display. They come in all sorts of different sizes and shapes which makes it easy to design a clock for whatever purpose you want (small desk clock, larger wall clock, etc). In my case I wanted something similar to the Adafruit clock, small enough that I could put it on a desk but still big enough to show off some of the components. I like the mechanical look so I had planned on putting everything in some type of clear case so you could see all of the electronics.&lt;/p&gt;
+&lt;p&gt;A nixie clock is simply a clock that is built using multiple &lt;a href=&#34;https://en.wikipedia.org/wiki/Nixie_tube&#34; target=&#34;_blank&#34;&gt;nixie tubes&lt;/a&gt; for the display. They come in all sorts of different sizes and shapes which makes it easy to design a clock for whatever purpose you want (small desk clock, larger wall clock, etc). In my case I wanted something similar to the Adafruit clock, small enough that I could put it on a desk but still big enough to show off some of the components. I like the mechanical look so I had planned on putting everything in some type of clear case so you could see all of the electronics.&lt;/p&gt;
 
 &lt;h2 id=&#34;research&#34;&gt;Research&lt;/h2&gt;
 
 &lt;p&gt;I am not an electronics guy at all, I can take a bag of parts with a schematic or instructions and solder it all together, but if you are looking at me to design a circuit from the ground up then you are in for a world of hurt.
-Luckily there are a bunch of smart people out there that have built nixie clocks before and have been kind enough to share. One of those people is Andrew Saxén who has not only a great write-up on how he built his nixie clock, but also links to the code that runs it as well as the PCB layout. You can check it out at his site &lt;a href=&#34;http://codeterrific.com/arduino/nixie-clock-build&#34;&gt;Code Terrific&lt;/a&gt;. There are tons of other links out there showing various builds, but for whatever reason Adam&amp;rsquo;s just seemed to click with me so I decided I was going to use what he had already done as my &amp;ldquo;base&amp;rdquo;.&lt;/p&gt;
+Luckily there are a bunch of smart people out there that have built nixie clocks before and have been kind enough to share. One of those people is Andrew Saxén who has not only a great write-up on how he built his nixie clock, but also links to the code that runs it as well as the PCB layout. You can check it out at his site &lt;a href=&#34;http://codeterrific.com/arduino/nixie-clock-build&#34; target=&#34;_blank&#34;&gt;Code Terrific&lt;/a&gt;. There are tons of other links out there showing various builds, but for whatever reason Adam&amp;rsquo;s just seemed to click with me so I decided I was going to use what he had already done as my &amp;ldquo;base&amp;rdquo;.&lt;/p&gt;
 
 &lt;h2 id=&#34;chop-chop&#34;&gt;chop chop&lt;/h2&gt;
 
 &lt;p&gt;For my project all I wanted was a clock, I didn&amp;rsquo;t really care about temp or humidity so there wouldn&amp;rsquo;t be a need to include a DHT22 sensor in the build. Additionally, as of right now I plan on having the PCB printed as opposed to etching one at home. This means I&amp;rsquo;ll be able to take advantage of using a two sided PCB. The third change from Adam&amp;rsquo;s original design I&amp;rsquo;d like to make is to directly integrate his real-time clock circuit into the nixie PCB, that way everything is all in one spot.&lt;/p&gt;
 
-&lt;p&gt;With all of that I downloaded the &lt;a href=&#34;http://fritzing.org/home/&#34;&gt;Fritzing&lt;/a&gt; application and set out to re-create Adam&amp;rsquo;s PCB as best I could. Once I had that I started to strip away things I didn&amp;rsquo;t think I&amp;rsquo;d need, add some new things and then try and condense it down as much as possible to save on costs. Part of me wanted to make a really nice looking PCB but for my first attempt the cost would have been a bit more than I wanted to spend. I&amp;rsquo;m thinking if this turns out ok I can always re-use the nixie tubes and create a new, fancier PCB later.&lt;/p&gt;
+&lt;p&gt;With all of that I downloaded the &lt;a href=&#34;http://fritzing.org/home/&#34; target=&#34;_blank&#34;&gt;Fritzing&lt;/a&gt; application and set out to re-create Adam&amp;rsquo;s PCB as best I could. Once I had that I started to strip away things I didn&amp;rsquo;t think I&amp;rsquo;d need, add some new things and then try and condense it down as much as possible to save on costs. Part of me wanted to make a really nice looking PCB but for my first attempt the cost would have been a bit more than I wanted to spend. I&amp;rsquo;m thinking if this turns out ok I can always re-use the nixie tubes and create a new, fancier PCB later.&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;
 &lt;figure&gt;
@@ -324,13 +327,13 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
 
 &lt;p&gt;If your skills are at hobbyist electronics person or above I apologize for the mess that is the PCB above :)&lt;/p&gt;
 
-&lt;p&gt;With this design it would be about ~$58 for three boards from &lt;a href=&#34;https://oshpark.com&#34;&gt;OSH Park&lt;/a&gt; which isn&amp;rsquo;t that bad for me. With a small child around and a full-time job the ability for me to find time to hand etch these is highly unlikely so it makes more sense to just bite the bullet and have someone else print them.&lt;/p&gt;
+&lt;p&gt;With this design it would be about ~$58 for three boards from &lt;a href=&#34;https://oshpark.com&#34; target=&#34;_blank&#34;&gt;OSH Park&lt;/a&gt; which isn&amp;rsquo;t that bad for me. With a small child around and a full-time job the ability for me to find time to hand etch these is highly unlikely so it makes more sense to just bite the bullet and have someone else print them.&lt;/p&gt;
 
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 
 &lt;p&gt;The base PCB isn&amp;rsquo;t finalized but I think it&amp;rsquo;s close enough for now. The next thing that I have been thinking about is how to mount the tubes. Part of me would like to make an additional PCB and have the tubes slot right into that PCB and then connect it to the other PCB either via headers or a ribbon cable. The problem with that is since I&amp;rsquo;m pretty much useless, I currently don&amp;rsquo;t have the ability to design the libraries needed to mock out IN-8 tubes and I haven&amp;rsquo;t been able to find any existing resources. Everyone seems to have the IN-12A but I just don&amp;rsquo;t like the look of those as much.&lt;/p&gt;
 
-&lt;p&gt;Another option would be to use &lt;a href=&#34;http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;amp;cPath=4_11&amp;amp;products_id=74&#34;&gt;these&lt;/a&gt; pre-built &amp;ldquo;sockets&amp;rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&amp;rsquo;m not sure how much they would get me.&lt;/p&gt;
+&lt;p&gt;Another option would be to use &lt;a href=&#34;http://www.pvelectronics.co.uk/index.php?main_page=product_info&amp;amp;cPath=4_11&amp;amp;products_id=74&#34; target=&#34;_blank&#34;&gt;these&lt;/a&gt; pre-built &amp;ldquo;sockets&amp;rdquo; from pv electronics. Outside of having a nice way to interface with the tubes though I&amp;rsquo;m not sure how much they would get me.&lt;/p&gt;
 
 &lt;p&gt;The third option is do just do what Adam did and run the wires directly to the tubes. I think if I could do this in a fairly clean manner it would look pretty cool and go with the whole mechanical/exposed look I want.&lt;/p&gt;
 </description>
@@ -340,17 +343,17 @@ Luckily there are a bunch of smart people out there that have built nixie clocks
       <title>Have some extra cash? Help make your life easier</title>
       <link>https://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</link>
       <pubDate>Sat, 13 Feb 2016 13:02:40 -0700</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/02/have-some-extra-cash-help-make-your-life-easier/</guid>
       <description>&lt;p&gt;If you have some extra cash maybe you would consider donating some of it to one of the various open source projects that you likely use almost every single day? I know it is easy to forgot about where many of the things we use on a daily basis come from, but odds are that if you are reading this you probably use some kind of open source app.
-Where would you be without &lt;a href=&#34;http://www.openbsd.org/donations.html&#34;&gt;OpenSSH&lt;/a&gt; to securely connect to your servers?
-I know I&amp;rsquo;d personally be fucked without &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt; doing the load balancing for many of the apps I&amp;rsquo;ve supported.
-What about &lt;a href=&#34;http://www.apache.org/foundation/contributing.html&#34;&gt;Apache&lt;/a&gt;? Sure it might not be the hot tech now but how many of you have used it as your HTTP server both at work or for your personal site?&lt;/p&gt;
+Where would you be without &lt;a href=&#34;http://www.openbsd.org/donations.html&#34; target=&#34;_blank&#34;&gt;OpenSSH&lt;/a&gt; to securely connect to your servers?
+I know I&amp;rsquo;d personally be fucked without &lt;a href=&#34;http://www.haproxy.org/&#34; target=&#34;_blank&#34;&gt;HAProxy&lt;/a&gt; doing the load balancing for many of the apps I&amp;rsquo;ve supported.
+What about &lt;a href=&#34;http://www.apache.org/foundation/contributing.html&#34; target=&#34;_blank&#34;&gt;Apache&lt;/a&gt;? Sure it might not be the hot tech now but how many of you have used it as your HTTP server both at work or for your personal site?&lt;/p&gt;
 
 &lt;p&gt;I could go on and on but the point I&amp;rsquo;m trying to make is that there are many (many!) tools that we use on a daily basis that someone (or a group of someones) are building, fixing and maintaining that make our lives easier.
 Some of these have big corporate sponsors but many of them do not.
 A lot of these people have other jobs they use to pay the bills and then work on their open source projects during their &amp;ldquo;off&amp;rdquo; time.
-Some groups build products, others focus on your rights (take the &lt;a href=&#34;https://supporters.eff.org/donate/button&#34;&gt;EFF&lt;/a&gt; for example). Others, like the &lt;a href=&#34;https://www.torproject.org/donate/donate.html.en&#34;&gt;Tor&lt;/a&gt; project, do both.&lt;/p&gt;
+Some groups build products, others focus on your rights (take the &lt;a href=&#34;https://supporters.eff.org/donate/button&#34; target=&#34;_blank&#34;&gt;EFF&lt;/a&gt; for example). Others, like the &lt;a href=&#34;https://www.torproject.org/donate/donate.html.en&#34; target=&#34;_blank&#34;&gt;Tor&lt;/a&gt; project, do both.&lt;/p&gt;
 
 &lt;p&gt;I encourage you to make a list of some of the open source tools you use on a daily basis and consider donating either money or time to those projects.&lt;/p&gt;
 </description>
@@ -360,7 +363,7 @@ Some groups build products, others focus on your rights (take the &lt;a href=&#3
       <title>deb-simple, a no frills apt repository server</title>
       <link>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
       <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
       <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
 
@@ -372,7 +375,7 @@ Some groups build products, others focus on your rights (take the &lt;a href=&#3
 &lt;li&gt;Was easy to setup/maintain&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34; target=&#34;_blank&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&amp;rsquo;t become corrupted.&lt;/p&gt;
 </description>

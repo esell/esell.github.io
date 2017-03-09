@@ -6,13 +6,16 @@
     <description>Recent content in Go on es Heavy Industries</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <managingEditor>esell@esheavyindustries.com (esells)</managingEditor>
+    <webMaster>esell@esheavyindustries.com (esells)</webMaster>
+    <copyright>who knows?</copyright>
     <atom:link href="https://esheavyindustries.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>deb-simple, a no frills apt repository server</title>
       <link>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</link>
       <pubDate>Wed, 03 Feb 2016 01:46:49 -0700</pubDate>
-      
+      <author>esell@esheavyindustries.com (esells)</author>
       <guid>https://esheavyindustries.com/2016/02/deb-simple-a-no-frills-apt-repository-server/</guid>
       <description>&lt;p&gt;I recently needed an simple way to serve up debian packages via apt-get for our internal apps. Oddly enough finding something that fit our needs was a bit harder than I thought. We needed something that:&lt;/p&gt;
 
@@ -24,7 +27,7 @@
 &lt;li&gt;Was easy to setup/maintain&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There were a few services out there that fit our needs but they were not free so I took a shot at building an app to fit our use-case. The outcome was &lt;a href=&#34;https://github.com/esell/deb-simple&#34; target=&#34;_blank&#34;&gt;deb-simple&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Currently it supports uploading packages via POST, deleting packages via DELETE and does a good job (I think) of making sure the repository listing doesn&amp;rsquo;t become corrupted.&lt;/p&gt;
 </description>

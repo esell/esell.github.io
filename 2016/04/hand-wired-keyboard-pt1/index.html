@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Hand Wired Keyboard pt1</title>
-		<meta name="author" content="esells">
+		
+			<meta name="author" content="esells">
+		
 		<meta name="generator" content="Hugo 0.18.1" />
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css">
 		<link rel="stylesheet" href="https://esheavyindustries.com//css/normalize.css">
@@ -112,10 +115,10 @@ I knew I wanted something that wasn&rsquo;t super &ldquo;clicky&rdquo; because t
 everywhere I looked so I had to go the message board group-buy route. Luckily the group-buy was legit and I ended up with all the switches I needed.</p>
 
 <p>Ah, so now I needed something to put those switches into aka the &ldquo;plate&rdquo;. I knew I wanted a ~65% style keyboard which is basically a typical keyboard stripped of all the non-essential stuff (for me). Things like function keys, media keys, etc.
-I came across a few sites (<a href="http://builder.swillkb.com/">plate &amp; case builder</a> and <a href="http://www.keyboard-layout-editor.com/">keyboard layout editor</a>) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
-So I created my layout, created my CAD files for the plates (top and bottom) and headed over to <a href="http://www.bigbluesaw.com/">big blue saw</a> to get my quote. For one set of plates it was going to cost me ~$90!! Now I&rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&rsquo;t going to be able to find that many people who wanted to make their own keyboard.</p>
+I came across a few sites (<a href="http://builder.swillkb.com/" target="_blank">plate &amp; case builder</a> and <a href="http://www.keyboard-layout-editor.com/" target="_blank">keyboard layout editor</a>) that allowed you to design your own keyboard layout and then create a CAD type file from those layouts which could then be provided to a shop or vendor who could cut the pattern out in metal, plastic, whatever.
+So I created my layout, created my CAD files for the plates (top and bottom) and headed over to <a href="http://www.bigbluesaw.com/" target="_blank">big blue saw</a> to get my quote. For one set of plates it was going to cost me ~$90!! Now I&rsquo;m not saying that the pricing from big blue saw is out of line, it just wasn&rsquo;t what I was expecting. Once you order five or more sets of the plates the pricing was almost cut in half but I wasn&rsquo;t going to be able to find that many people who wanted to make their own keyboard.</p>
 
-<p>By pure chance I came across someone online talking about their &ldquo;neutrino&rdquo; build. It was a 65% keyboard that was being sold by <a href="http://olkb.com/">Ortholinear Keyboards</a> and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&rsquo;t ship for over four months. At this point I&rsquo;m starting to realize that things in the mechanical keyboard game don&rsquo;t come easy.</p>
+<p>By pure chance I came across someone online talking about their &ldquo;neutrino&rdquo; build. It was a 65% keyboard that was being sold by <a href="http://olkb.com/" target="_blank">Ortholinear Keyboards</a> and it was right in my price range so I went ahead and pulled the trigger. This ended up being yet another pain that I wasn&rsquo;t anticipating as due to a previous group buy offered by Ortholinear Keyboards, they were so backed up with orders that my stuff didn&rsquo;t ship for over four months. At this point I&rsquo;m starting to realize that things in the mechanical keyboard game don&rsquo;t come easy.</p>
 
 <p>When the plates for the keyboard finally arrived I grabbed all the other parts I had ordered and went to town. Initially I had talked myself into believing that soldering all of these random diodes and wires wasn&rsquo;t going to be an issue and that I&rsquo;d knock it out in no time. wrong. wrong. Through hole soldering will never (never!) prepare you for the pain that is soldering a hand wired keyboard. If you are reading this right now because you are thinking about doing this I HIGHLY suggest you either make your own PCB or buy a kit that comes with one.</p>
 
@@ -158,7 +161,7 @@ The next day I was able to come back knowing what type of pain I was in for and 
 </figure>
 </center></p>
 
-<p>At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&rsquo;s called <a href="https://github.com/tmk/tmk_keyboard">TMK</a> and is actually pretty easy to use.
+<p>At this point I attached the base plate but left out the middle acrylic piece because I needed access to the reset button on the teensy and had plans to re-work a few things anyways. I also put the actual key caps on and went to town creating the firmware needed to make this beast actually type. A group of people way smarter than I am have a great firmware project out on Github just for projects like this, it&rsquo;s called <a href="https://github.com/tmk/tmk_keyboard" target="_blank">TMK</a> and is actually pretty easy to use.
 Since all keyboards are going to be different, TMK has you pass in what your keyboard matrix looks like and then what you want each key to do when it&rsquo;s pressed. TMK also has this concept of layers which is great for my 65% board as I can still have the functionality of say, media keys, I just need to use a specific key sequence to activate it. As an example I don&rsquo;t have a &ldquo;tilde&rdquo; key by default so if I press fn + Esc I&rsquo;ll get a tilde.
 Anyways, I got the firmware to compile and loaded it onto the teensy and it actually worked! Below is the final keyboard with a few keys that I&rsquo;ll have to swap out as they are not the right size/type:</p>
 
